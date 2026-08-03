@@ -14,7 +14,7 @@
   <main class="shell">
     <header>
       <div>
-        <div class="eyebrow">TEFEKKÜR ARACI</div>
+        <div class="eyebrow" id="eyebrow">TEFEKKÜR ARACI</div>
         <h1 id="appTitle">Düşünmez misiniz?</h1>
         <p id="subtitle">Bir fotoğraf çek. Gördüğünün ardındaki düzeni düşün.</p>
       </div>
@@ -26,12 +26,21 @@
     </header>
 
     <section class="card capture-card">
-      <label class="upload" for="imageInput">
+      <div class="upload-panel">
         <span class="camera">◉</span>
-        <strong id="pickLabel">Fotoğraf çek veya seç</strong>
-        <small id="pickHint">Kamera, galeri veya dosyalar</small>
-      </label>
-      <input id="imageInput" type="file" accept="image/*" capture="environment" />
+        <strong id="pickLabel">Bir fotoğraf ekle</strong>
+        <small id="pickHint">Kameradan çek veya galeriden seç</small>
+      </div>
+
+      <div class="picker-actions">
+        <button id="cameraBtn" type="button">Kamerayı aç</button>
+        <button id="galleryBtn" type="button" class="secondary">Galeriden seç</button>
+      </div>
+
+      <input id="cameraInput" type="file" accept="image/*" capture="environment" />
+      <input id="galleryInput" type="file" accept="image/*" />
+
+      <p id="cameraHelp" class="help-text" hidden></p>
       <img id="preview" alt="Seçilen fotoğraf" hidden />
       <button id="analyzeBtn" disabled>Üzerinde düşün</button>
       <p id="privacy">Fotoğraf yalnızca analiz için güvenli sunucuya gönderilir.</p>
