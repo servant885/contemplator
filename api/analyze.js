@@ -77,7 +77,7 @@ Keep every field concise, meaningful, and suitable for a mobile screen.`;
 
     const endpoint =
       "https://generativelanguage.googleapis.com/v1beta/models/" +
-      "gemini-2.5-flash-lite:generateContent?key=" +
+      "gemini-3.5-flash-lite:generateContent?key=" +
       encodeURIComponent(process.env.GEMINI_API_KEY);
 
     const geminiResponse = await fetch(endpoint, {
@@ -101,7 +101,6 @@ Keep every field concise, meaningful, and suitable for a mobile screen.`;
           }
         ],
         generationConfig: {
-          temperature: 0.5,
           maxOutputTokens: 1200,
           responseMimeType: "application/json",
           responseSchema
