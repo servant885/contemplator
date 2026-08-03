@@ -76,12 +76,32 @@ function setSecurityHeaders(res){
   res.setHeader("Referrer-Policy","no-referrer");
 }
 
-function enforceOrigin(req){
-  const allowedOrigin=process.env.APP_ORIGIN?.replace(/\/$/,"");
-  if(!allowedOrigin) return true;
+function normalizeOrigin(value){
+  return String(value||"")
+    .trim()
+    .replace(/\/$/,"")
+    .toLowerCase();
+}
 
-  const origin=String(req.headers.origin||"").replace(/\/$/,"");
-  return !origin||origin===allowedOrigin;
+function enforceOrigin(req){
+  const requestOrigin=normalizeOrigin(req.headers.origin);
+
+  // Allow server-to-server requests that do not send an Origin header.
+  if(!requestOrigin) return true;
+
+  const configuredOrigins=String(process.env.APP_ORIGIN||"")
+    .split(",")
+    .map(normalizeOrigin)
+    .filter(Boolean);
+
+  const allowedOrigins=new Set([
+    ...configuredOrigins,
+    "https://hikmet.app",
+    "https://www.hikmet.app",
+    "https://contemplator885.vercel.app"
+  ]);
+
+  return allowedOrigins.has(requestOrigin);
 }
 
 function cleanupMemoryCounters(now){
