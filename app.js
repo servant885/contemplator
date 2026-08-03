@@ -29,7 +29,9 @@ const translations = {
     retry: "Tekrar dene",
     footer: "Bak. Düşün. Hatırla.",
     invalidImage: "Lütfen geçerli bir fotoğraf seç.",
-    tooLarge: "Fotoğraf çok büyük. Daha küçük bir görüntü seç."
+    tooLarge: "Fotoğraf çok büyük. Daha küçük bir görüntü seç.",
+    darkMode: "Karanlık moda geç",
+    lightMode: "Aydınlık moda geç"
   },
   en: {
     brand: "Will You Not Reflect?",
@@ -61,7 +63,9 @@ const translations = {
     retry: "Try again",
     footer: "Observe. Reflect. Remember.",
     invalidImage: "Please choose a valid image.",
-    tooLarge: "The image is too large. Please choose a smaller one."
+    tooLarge: "The image is too large. Please choose a smaller one.",
+    darkMode: "Switch to dark mode",
+    lightMode: "Switch to light mode"
   },
   de: {
     brand: "Denkt ihr denn nicht nach?",
@@ -93,12 +97,16 @@ const translations = {
     retry: "Erneut versuchen",
     footer: "Beobachte. Denke nach. Erinnere dich.",
     invalidImage: "Bitte wähle ein gültiges Bild.",
-    tooLarge: "Das Bild ist zu groß. Bitte wähle ein kleineres."
+    tooLarge: "Das Bild ist zu groß. Bitte wähle ein kleineres.",
+    darkMode: "Zum Dunkelmodus wechseln",
+    lightMode: "Zum Hellmodus wechseln"
   }
 };
 
 const elements = {
   language: document.getElementById("languageSelect"),
+  themeToggle: document.getElementById("themeToggle"),
+  themeMeta: document.getElementById("themeColorMeta"),
   hero: document.getElementById("heroSection"),
   preview: document.getElementById("previewSection"),
   loading: document.getElementById("loadingSection"),
@@ -119,6 +127,24 @@ function setText(id, value, html = false) {
   if (!element) return;
   if (html) element.innerHTML = value;
   else element.textContent = value;
+}
+
+function currentTheme() {
+  return document.documentElement.dataset.theme || "light";
+}
+
+function updateThemeButton() {
+  const t = translations[currentLanguage];
+  const nextLabel = currentTheme() === "dark" ? t.lightMode : t.darkMode;
+  elements.themeToggle.setAttribute("aria-label", nextLabel);
+  elements.themeToggle.setAttribute("title", nextLabel);
+  elements.themeMeta.setAttribute("content", currentTheme() === "dark" ? "#101310" : "#f5f3ee");
+}
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("theme", theme);
+  updateThemeButton();
 }
 
 function applyLanguage(language) {
@@ -157,6 +183,7 @@ function applyLanguage(language) {
   setText("errorText", t.errorText);
   setText("retryButton", t.retry);
   setText("footerText", t.footer);
+  updateThemeButton();
 }
 
 function showSection(section) {
@@ -237,7 +264,6 @@ function renderResult(data) {
 
   const quranCard = document.getElementById("quranCard");
   const hasQuran = Boolean(data.quran_text && data.quran_reference);
-
   quranCard.classList.toggle("hidden", !hasQuran);
 
   if (hasQuran) {
@@ -250,15 +276,12 @@ function renderResult(data) {
 
 async function analyzeImage() {
   if (!selectedImage) return;
-
   showSection(elements.loading);
 
   try {
     const response = await fetch("/api/analyze", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         image: selectedImage,
         language: currentLanguage
@@ -266,7 +289,6 @@ async function analyzeImage() {
     });
 
     const data = await response.json().catch(() => ({}));
-
     if (!response.ok) {
       throw new Error(data.error || translations[currentLanguage].errorText);
     }
@@ -297,6 +319,10 @@ elements.language.addEventListener("change", event => {
   applyLanguage(event.target.value);
 });
 
+elements.themeToggle.addEventListener("click", () => {
+  setTheme(currentTheme() === "dark" ? "light" : "dark");
+});
+
 elements.analyzeButton.addEventListener("click", analyzeImage);
 document.getElementById("changeImageButton").addEventListener("click", () => elements.galleryInput.click());
 document.getElementById("newReflectionButton").addEventListener("click", resetApp);
@@ -307,3 +333,4 @@ document.getElementById("retryButton").addEventListener("click", () => {
 });
 
 applyLanguage(currentLanguage);
+updateThemeButton();
