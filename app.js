@@ -127,5 +127,24 @@ $("#newChatButton").onclick=newConversation;$("#homeButton").onclick=newConversa
 $("#languageSelect").onchange=e=>{language=e.target.value;localStorage.setItem("hikmet-language",language);applyLanguage()};
 $("#themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("hikmet-theme",next);$("#themeColorMeta").content=next==="dark"?"#0f120f":"#f4f1e9"};
 
+
+function keepComposerVisible(){
+  const viewport=window.visualViewport;
+  if(!viewport)return;
+  const offset=Math.max(0,window.innerHeight-viewport.height-viewport.offsetTop);
+  document.documentElement.style.setProperty("--keyboard-offset",`${offset}px`);
+}
+if(window.visualViewport){
+  visualViewport.addEventListener("resize",keepComposerVisible);
+  visualViewport.addEventListener("scroll",keepComposerVisible);
+  keepComposerVisible();
+}
+["welcomeInput","chatInput"].forEach(id=>{
+  const el=$("#"+id);
+  el?.addEventListener("focus",()=>{
+    setTimeout(()=>el.scrollIntoView({block:"center",behavior:"smooth"}),250);
+  });
+});
+
 applyLanguage();
 if(history.length)openChat();
