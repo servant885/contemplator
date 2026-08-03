@@ -11,10 +11,18 @@
   <meta property="og:description" content="İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.">
   <meta property="og:image" content="https://www.hikmet.app/social-preview.svg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-mobile-web-app-title" content="Hikmet">
+  <meta name="application-name" content="Hikmet">
   <title>Hikmet</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-192.png?v=3" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180">
+  <link rel="shortcut icon" href="/favicon-32.png?v=3" type="image/png">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/styles.css">
+
   <script>
     (() => {
       const saved = localStorage.getItem("hikmet-theme");
@@ -61,21 +69,17 @@
         <span class="eyebrow" data-i18n="eyebrow">Yargısız ve samimi bir konuşma</span>
         <h1 data-i18n="headline">Seni Rahmân’a yaklaşmaktan alıkoyan ne?</h1>
         <p data-i18n="intro">Bir şüphe, yaşadığın bir kırgınlık, günahların, ibadete başlamakta zorlanman veya anlamlandıramadığın herhangi bir şey olabilir. Olduğu gibi yaz.</p>
-
         <div id="promptChips" class="prompt-chips"></div>
-
         <form id="welcomeForm" class="welcome-composer">
           <textarea id="welcomeInput" rows="3" data-i18n-placeholder="placeholder" placeholder="İçinden geçeni yaz…"></textarea>
           <button class="send-button" type="submit" aria-label="Gönder">↑</button>
         </form>
-
         <p class="trust-note" data-i18n="trustNote">Amaç seni baskılamak değil; anlamak, yanlış bilgiyi ayırmak ve hakikati güzel bir üslupla konuşmak.</p>
       </div>
     </section>
 
     <section id="chatView" class="chat-view hidden">
       <div id="messages" class="messages" aria-live="polite"></div>
-
       <div class="composer-wrap">
         <form id="chatForm" class="chat-composer">
           <textarea id="chatInput" rows="1" data-i18n-placeholder="placeholder" placeholder="İçinden geçeni yaz…"></textarea>
@@ -85,7 +89,6 @@
       </div>
     </section>
   </main>
-
   <script src="/app.js"></script>
 </body>
 </html>
