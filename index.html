@@ -8,14 +8,17 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hikmet">
   <meta property="og:description" content="Tefekkür et, öğren, sor ve İslam'ı keşfet.">
-  <meta property="og:image" content="https://hikmet.app/social-preview.png">
-  <meta property="og:image:secure_url" content="https://hikmet.app/social-preview.png">
+  <meta property="og:image" content="https://www.hikmet.app/social-preview.png?v=11">
+  <meta property="og:image:secure_url" content="https://www.hikmet.app/social-preview.png?v=11">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://hikmet.app/">
+  <meta property="og:image:alt" content="Hikmet — Tefekkür et, öğren, sor ve İslam'ı keşfet">
+  <meta property="og:url" content="https://www.hikmet.app/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://hikmet.app/social-preview.png">
+  <meta name="twitter:title" content="Hikmet">
+  <meta name="twitter:description" content="Tefekkür et, öğren, sor ve İslam'ı keşfet.">
+  <meta name="twitter:image" content="https://www.hikmet.app/social-preview.png?v=11">
   <title>Hikmet</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.webmanifest">
@@ -38,6 +41,7 @@
         <span>Hikmet</span>
       </button>
       <div class="top-actions">
+        <button id="savedButton" class="circle-btn" data-nav="saved" aria-label="Kayıtlar" title="Kayıtlar">♡</button>
         <button id="themeToggle" class="circle-btn" aria-label="Tema">
           <svg class="moon" viewBox="0 0 24 24"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
           <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -75,6 +79,19 @@
           </button>
         </div>
 
+        <section class="daily-grid" aria-label="Günün içerikleri">
+          <article class="daily-card" id="dailyVerseCard">
+            <span class="kicker" data-i18n="dailyVerse">Günün ayeti</span>
+            <p id="dailyVerseText"></p><cite id="dailyVerseRef"></cite>
+            <button class="save-mini" data-save="dailyVerse" data-i18n="save">Kaydet</button>
+          </article>
+          <article class="daily-card" id="dailyHadithCard">
+            <span class="kicker" data-i18n="dailyHadith">Günün hadisi</span>
+            <p id="dailyHadithText"></p><cite id="dailyHadithRef"></cite>
+            <button class="save-mini" data-save="dailyHadith" data-i18n="save">Kaydet</button>
+          </article>
+        </section>
+
         <section class="prayer-widget">
           <div><span class="kicker" data-i18n="prayerKicker">Bugünün vakitleri</span><h2 data-i18n="prayerTitle">Namaz vakitleri</h2></div>
           <button id="loadPrayerBtn" class="outline-btn" data-i18n="useLocation">Konumumu kullan</button>
@@ -111,6 +128,10 @@
             <article id="quranResultCard" class="hidden"><em>04</em><div><h3 data-i18n="relatedVerse">İlgili ayet</h3><p id="quranText"></p><cite id="quranRef"></cite></div></article>
           </div>
           <div class="question-box"><small data-i18n="askYourself">Kendine sor</small><p id="questionText"></p></div>
+          <div class="result-actions">
+            <button id="saveReflectBtn" class="outline-btn" data-i18n="save">Kaydet</button>
+            <button id="shareReflectBtn" class="primary-btn" data-i18n="share">Paylaş</button>
+          </div>
           <button id="newReflectBtn" class="outline-btn full" data-i18n="newImage">Yeni görüntü</button>
         </div>
         <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
@@ -140,16 +161,22 @@
         <div id="barrierMessages" class="chat-messages"><div class="message assistant" data-i18n="barrierWelcome">Seni dinlemeye hazırım. Yaşadığın bir olay, bilimsel bir soru, ahlaki bir kaygı veya başka bir sebep olabilir.</div></div>
         <form id="barrierForm" class="composer"><textarea id="barrierInput" rows="2" data-i18n-placeholder="barrierPlaceholder" placeholder="Düşünceni açıkça yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
       </section>
+
+      <section id="savedPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="savedKicker">Sana kalanlar</span><h1 data-i18n="savedTitle">Kayıtlar</h1></div></div>
+        <p class="lead" data-i18n="savedLead">Kaydettiğin ayet, hadis ve tefekkürler bu cihazda saklanır.</p>
+        <div id="savedList" class="saved-list"></div>
+      </section>
     </main>
 
-    <nav class="bottom-nav">
+    <nav class="bottom-nav five">
       <button data-nav="home" class="active"><span>⌂</span><small data-i18n="home">Ana Sayfa</small></button>
       <button data-nav="reflect"><span>◎</span><small data-i18n="reflectTitle">Tefekkür</small></button>
       <button data-nav="learn"><span>⌘</span><small data-i18n="learnTitle">Öğren</small></button>
       <button data-nav="ask"><span>?</span><small data-i18n="askTitle">Sor</small></button>
+      <button data-nav="barrier"><span>◇</span><small data-i18n="barrierNav">Keşfet</small></button>
     </nav>
   </div>
-  <script src="/content.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>

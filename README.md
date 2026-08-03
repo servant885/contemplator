@@ -1,24 +1,16 @@
-# Hikmet v1
+# Hikmet v1.1
 
 ## Kurulum
-ZIP içindeki tüm dosyaları GitHub repository köküne yükleyin. `api` klasörünü koruyun.
+Repository kökündeki dosyaların tamamını bu paketle değiştirin. `GEMINI_API_KEY` Vercel Environment Variables içinde kalmalıdır.
 
-Vercel Environment Variables:
-- `GEMINI_API_KEY` — zorunlu
+## Düzeltmeler
+- WhatsApp/Open Graph için gerçek 1200×630 PNG
+- Çalışan Öğren kartları ve kaynak bağlantıları
+- Alt menüde İslam'ı Keşfet
+- Kararlı Gemini 2.5 Flash sohbet ve görsel analizi
+- Boş/yarım mesaj, zaman aşımı ve iç komut sızıntısı koruması
+- Günün ayeti ve hadisi
+- Kayıtlar/favoriler
+- Tefekkür sonucunu kaydetme ve paylaşma
 
-Vercel otomatik deploy eder.
-
-## Modüller
-- Fotoğraftan tefekkür
-- Üç dilde öğrenme kütüphanesi
-- Dinî soru-cevap sohbeti
-- İslam'ı keşfet / engeller sohbeti
-- Konuma göre yaklaşık namaz vakitleri
-- Karanlık mod ve PWA
-
-## Kaynak notu
-Quran.com'un güncel Content API'si uygulama kimlik bilgileri ister. Sunnah.com API'si de ayrı API anahtarı ister.
-Bu ilk sürüm, yalnızca `GEMINI_API_KEY` ile hemen çalışabilmesi için seçilmiş ayet ve sahih hadisleri kaynak bağlantılarıyla yerel olarak sunar.
-İleriki sürümde Quran Foundation ve Sunnah.com anahtarları alındığında canlı arama eklenebilir.
-
-Namaz vakitleri AlAdhan üzerinden yaklaşık olarak gelir; yerel cami takvimi esas alınmalıdır.
+Not: Dinî cevaplar eğitim amaçlıdır; kişisel fetva gereken meselelerde ehil bir âlime danışılmalıdır.
