@@ -1,0 +1,50 @@
+[
+  {
+    "id": "morning",
+    "category": "morning",
+    "ar": "اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا",
+    "tr": "Allah’ım! Senin yardımınla sabahladık, Senin yardımınla akşamlarız.",
+    "en": "O Allah, by You we enter the morning and by You we enter the evening.",
+    "ref": "Sunan Abi Dawud 5068"
+  },
+  {
+    "id": "sleep",
+    "category": "night",
+    "ar": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+    "tr": "Allah’ım, Senin adınla ölür ve dirilirim.",
+    "en": "In Your name, O Allah, I die and I live.",
+    "ref": "Sahih al-Bukhari 6324"
+  },
+  {
+    "id": "knowledge",
+    "category": "knowledge",
+    "ar": "رَبِّ زِدْنِي عِلْمًا",
+    "tr": "Rabbim, ilmimi artır.",
+    "en": "My Lord, increase me in knowledge.",
+    "ref": "Qur'an 20:114"
+  },
+  {
+    "id": "parents",
+    "category": "family",
+    "ar": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+    "tr": "Rabbim! Küçüklüğümde beni yetiştirdikleri gibi onlara merhamet et.",
+    "en": "My Lord, have mercy upon them as they raised me when I was small.",
+    "ref": "Qur'an 17:24"
+  },
+  {
+    "id": "anxiety",
+    "category": "relief",
+    "ar": "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ",
+    "tr": "Allah bana yeter. O’ndan başka ilâh yoktur.",
+    "en": "Allah is sufficient for me. There is no deity except Him.",
+    "ref": "Qur'an 9:129"
+  },
+  {
+    "id": "forgiveness",
+    "category": "forgiveness",
+    "ar": "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+    "tr": "Rabbim, beni bağışla ve tövbemi kabul et. Şüphesiz Sen tövbeleri kabul eden, merhamet edensin.",
+    "en": "My Lord, forgive me and accept my repentance. You are the Accepter of repentance, the Merciful.",
+    "ref": "Sunan Abi Dawud 1516"
+  }
+]
