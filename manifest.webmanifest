@@ -1,21 +1,9 @@
 {
-  "name": "Düşünmez misiniz?",
-  "short_name": "Tefekkür",
+  "name": "Hikmet",
+  "short_name": "Hikmet",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f3ee",
+  "background_color": "#f4f1e9",
   "theme_color": "#244b3b",
-  "description": "Bir fotoğraf çek. Arkasındaki bilimi keşfet. Tefekkür et.",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "description": "Tefekkür et, öğren, sor ve İslam'ı keşfet."
 }

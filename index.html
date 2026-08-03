@@ -1,215 +1,150 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
-  <meta name="theme-color" content="#f5f3ee" id="themeColorMeta" />
-  <meta name="description" content="Bir fotoğraf çek. Arkasındaki bilimi keşfet. Tefekkür et." />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://contemplator885.vercel.app/" />
-  <meta property="og:title" content="Düşünmez misiniz?" />
-  <meta property="og:description" content="Bir fotoğraf çek. Arkasındaki bilimi keşfet. Tefekkür et." />
-  <meta property="og:image" content="https://contemplator885.vercel.app/social-preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Düşünmez misiniz? uygulaması" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Düşünmez misiniz?" />
-  <meta name="twitter:description" content="Bir fotoğraf çek. Arkasındaki bilimi keşfet. Tefekkür et." />
-  <meta name="twitter:image" content="https://contemplator885.vercel.app/social-preview.png" />
-
-  <title>Düşünmez misiniz?</title>
-
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="stylesheet" href="/styles.css" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1e9" id="themeColorMeta">
+  <meta name="description" content="Tefekkür et, öğren, sor ve İslam'ı keşfet.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hikmet">
+  <meta property="og:description" content="Tefekkür et, öğren, sor ve İslam'ı keşfet.">
+  <meta property="og:image" content="https://hikmet.net/social-preview.svg">
+  <meta property="og:url" content="https://hikmet.net/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Hikmet</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
   <script>
     (() => {
-      const saved = localStorage.getItem("theme");
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
+      const saved = localStorage.getItem("hikmet-theme");
+      const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
     })();
   </script>
 </head>
 <body>
-  <main class="shell">
+  <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="/" aria-label="Ana sayfa">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32">
-            <path d="M25.8 5.8C16.1 6.4 9.5 10.5 7.1 17.6c-1 3-.5 5.7 1.3 7.6 1.7 1.8 4.2 2.5 7 1.8 7.3-1.8 10.7-9.4 10.4-21.2Z"/>
-            <path d="M7.4 25.4c3.4-5.6 7.8-9.7 13.5-12.3"/>
-          </svg>
+      <button class="brand" data-nav="home" aria-label="Ana sayfa">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M25.6 5.7C16.4 6.3 9.7 10.5 7.3 17.5c-1 3-.5 5.7 1.3 7.6 1.7 1.8 4.2 2.5 7 1.8 7.1-1.8 10.4-9.2 10-21.2Z"/><path d="M7.6 25.2c3.5-5.5 7.9-9.6 13.5-12.2"/></svg>
         </span>
-        <span id="brandName">Düşünmez misiniz?</span>
-      </a>
-
+        <span>Hikmet</span>
+      </button>
       <div class="top-actions">
-        <button id="themeToggle" class="icon-button" type="button" aria-label="Karanlık moda geç" title="Karanlık moda geç">
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.41M17.66 6.34l1.41-1.41"/>
-          </svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.3 15.3A8.5 8.5 0 0 1 8.7 3.7 8.5 8.5 0 1 0 20.3 15.3Z"/>
-          </svg>
+        <button id="themeToggle" class="circle-btn" aria-label="Tema">
+          <svg class="moon" viewBox="0 0 24 24"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-
-        <label class="language-wrap" aria-label="Dil seçimi">
-          <select id="languageSelect">
-            <option value="tr">TR</option>
-            <option value="en">EN</option>
-            <option value="de">DE</option>
-          </select>
-        </label>
+        <select id="languageSelect" class="lang-select" aria-label="Dil">
+          <option value="tr">TR</option><option value="en">EN</option><option value="de">DE</option>
+        </select>
       </div>
     </header>
 
-    <section id="heroSection" class="hero">
-      <div class="eyebrow" id="eyebrow">Gördüğünün ötesine bak</div>
-      <h1 id="heroTitle">Bir fotoğraf çek.<br />Tefekkür etmeye başla.</h1>
-      <p id="heroText">
-        Çevrendeki herhangi bir şeyi fotoğraflandır. Yapay zekâ görüntüyü incelesin,
-        bilimsel yönünü açıklasın ve seni yaratılış üzerine düşünmeye davet etsin.
-      </p>
-
-      <div class="action-grid">
-        <button id="cameraButton" class="action-card action-primary" type="button">
-          <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 7.5h3l1.2-2h7.6l1.2 2h3a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-          </span>
-          <span>
-            <strong id="cameraTitle">Fotoğraf çek</strong>
-            <small id="cameraSubtitle">Kamerayı aç</small>
-          </span>
-        </button>
-
-        <button id="galleryButton" class="action-card" type="button">
-          <span class="action-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="4" width="18" height="16" rx="2"/>
-              <circle cx="8.5" cy="9" r="1.5"/>
-              <path d="m4 17 5-5 3.5 3.5 2.5-2.5 5 5"/>
-            </svg>
-          </span>
-          <span>
-            <strong id="galleryTitle">Galeriden seç</strong>
-            <small id="gallerySubtitle">Mevcut bir fotoğraf yükle</small>
-          </span>
-        </button>
-      </div>
-
-      <p class="privacy-note" id="privacyNote">
-        Fotoğraf yalnızca analiz için kullanılır.
-      </p>
-    </section>
-
-    <section id="previewSection" class="preview-section hidden">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow" id="previewEyebrow">Seçtiğin görüntü</div>
-          <h2 id="previewTitle">Hazır olduğunda üzerinde düşün.</h2>
+    <main>
+      <section id="homePage" class="page active">
+        <div class="hero">
+          <span class="kicker" data-i18n="heroKicker">İlim, tefekkür ve rehberlik</span>
+          <h1 data-i18n="heroTitle">Hakikati ara.<br>Hikmeti keşfet.</h1>
+          <p data-i18n="heroText">Çevrene dikkatle bak, İslam'ı güvenilir kaynaklardan öğren ve aklına takılanları çekinmeden sor.</p>
+          <blockquote>
+            <p data-i18n="wisdomVerse">“Kime hikmet verilmişse, ona pek çok hayır verilmiş demektir.”</p>
+            <cite data-i18n="wisdomRef">Bakara 2:269</cite>
+          </blockquote>
         </div>
-        <button id="changeImageButton" class="text-button" type="button">Değiştir</button>
-      </div>
 
-      <div class="image-frame">
-        <img id="previewImage" alt="Seçilen fotoğraf" />
-      </div>
+        <div class="feature-grid">
+          <button class="feature-card green" data-nav="reflect">
+            <span class="feature-icon">◎</span><span><strong data-i18n="reflectTitle">Tefekkür</strong><small data-i18n="reflectDesc">Bir fotoğrafın ardındaki bilimi ve hikmeti gör.</small></span><b>→</b>
+          </button>
+          <button class="feature-card" data-nav="learn">
+            <span class="feature-icon">⌘</span><span><strong data-i18n="learnTitle">Öğren</strong><small data-i18n="learnDesc">Ayetler, hadisler ve temel İslami konular.</small></span><b>→</b>
+          </button>
+          <button class="feature-card" data-nav="ask">
+            <span class="feature-icon">?</span><span><strong data-i18n="askTitle">Sor</strong><small data-i18n="askDesc">İbadet, inanç ve şüphelerin hakkında konuş.</small></span><b>→</b>
+          </button>
+          <button class="feature-card warm" data-nav="barrier">
+            <span class="feature-icon">◇</span><span><strong data-i18n="barrierTitle">İslam'ı Keşfet</strong><small data-i18n="barrierDesc">Müslüman olmana engel olan şeyi açıkça konuş.</small></span><b>→</b>
+          </button>
+        </div>
 
-      <button id="analyzeButton" class="analyze-button" type="button">
-        <span id="analyzeButtonText">Üzerinde düşün</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </button>
-    </section>
+        <section class="prayer-widget">
+          <div><span class="kicker" data-i18n="prayerKicker">Bugünün vakitleri</span><h2 data-i18n="prayerTitle">Namaz vakitleri</h2></div>
+          <button id="loadPrayerBtn" class="outline-btn" data-i18n="useLocation">Konumumu kullan</button>
+          <div id="prayerContent" class="prayer-content muted" data-i18n="prayerHint">Konum izni verirsen bugünün yaklaşık vakitlerini gösterebiliriz.</div>
+        </section>
+      </section>
 
-    <section id="loadingSection" class="loading-section hidden" aria-live="polite">
-      <div class="loader"></div>
-      <h2 id="loadingTitle">Görüntü inceleniyor…</h2>
-      <p id="loadingText">Bilimsel ayrıntılar ve tefekkür noktaları hazırlanıyor.</p>
-    </section>
-
-    <section id="resultSection" class="result-section hidden">
-      <div class="result-header">
-        <div>
-          <div class="eyebrow" id="resultEyebrow">Tefekkür</div>
+      <section id="reflectPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="reflectKicker">Gördüğünün ötesine bak</span><h1 data-i18n="reflectPageTitle">Tefekkür</h1></div></div>
+        <p class="lead" data-i18n="reflectLead">Kamerayla çek veya galeriden seç. Yapay zekâ görüntünün bilimsel yönünü açıklayıp seni tefekküre davet etsin.</p>
+        <div id="reflectPicker">
+          <div class="upload-zone">
+            <div class="upload-symbol">⌁</div>
+            <h2 data-i18n="chooseImage">Bir görüntü seç</h2>
+            <p data-i18n="chooseImageHint">Doğa, gökyüzü, bir eşya veya günlük hayattan herhangi bir şey.</p>
+            <div class="upload-actions">
+              <button id="cameraBtn" class="primary-btn" data-i18n="takePhoto">Fotoğraf çek</button>
+              <button id="galleryBtn" class="outline-btn" data-i18n="chooseGallery">Galeriden seç</button>
+            </div>
+          </div>
+        </div>
+        <div id="reflectPreview" class="hidden">
+          <img id="previewImage" class="preview-image" alt="">
+          <div class="inline-actions"><button id="analyzeBtn" class="primary-btn grow" data-i18n="analyze">Üzerinde düşün</button><button id="changeImageBtn" class="outline-btn" data-i18n="change">Değiştir</button></div>
+        </div>
+        <div id="reflectLoading" class="loading hidden"><span class="spinner"></span><h2 data-i18n="analyzing">Görüntü inceleniyor…</h2></div>
+        <div id="reflectResult" class="hidden result-area">
+          <img id="resultImage" class="result-image" alt="">
           <h2 id="resultTitle"></h2>
+          <div class="result-cards">
+            <article><em>01</em><div><h3 data-i18n="observation">Ne görüyorsun?</h3><p id="observationText"></p></div></article>
+            <article><em>02</em><div><h3 data-i18n="science">Arkasındaki bilim</h3><p id="scienceText"></p></div></article>
+            <article class="accent-card"><em>03</em><div><h3 data-i18n="reflection">Tefekkür</h3><p id="reflectionText"></p></div></article>
+            <article id="quranResultCard" class="hidden"><em>04</em><div><h3 data-i18n="relatedVerse">İlgili ayet</h3><p id="quranText"></p><cite id="quranRef"></cite></div></article>
+          </div>
+          <div class="question-box"><small data-i18n="askYourself">Kendine sor</small><p id="questionText"></p></div>
+          <button id="newReflectBtn" class="outline-btn full" data-i18n="newImage">Yeni görüntü</button>
         </div>
-        <button id="newReflectionButton" class="text-button" type="button">Yeni fotoğraf</button>
-      </div>
+        <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
+        <input id="galleryInput" type="file" accept="image/*" hidden>
+      </section>
 
-      <div class="result-image-wrap">
-        <img id="resultImage" alt="Analiz edilen fotoğraf" />
-      </div>
+      <section id="learnPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="learnKicker">Güvenilir kaynaklarla</span><h1 data-i18n="learnPageTitle">Öğren</h1></div></div>
+        <p class="lead" data-i18n="learnLead">Kur'an'dan ayetler, sahih hadisler ve temel konularda kısa, anlaşılır içerikler.</p>
+        <div class="tabs"><button class="tab active" data-filter="all" data-i18n="all">Tümü</button><button class="tab" data-filter="quran" data-i18n="quran">Kur'an</button><button class="tab" data-filter="hadith" data-i18n="hadith">Hadis</button><button class="tab" data-filter="topic" data-i18n="topics">Konular</button></div>
+        <div id="learnGrid" class="learn-grid"></div>
+        <p class="source-note" data-i18n="sourceNote">Ayet ve hadis metinleri kaynak referanslarıyla sunulur. Ayrıntılı inceleme için kaynak bağlantısını aç.</p>
+      </section>
 
-      <div class="result-stack">
-        <article class="result-card">
-          <span class="card-index">01</span>
-          <div>
-            <h3 id="observationHeading">Ne görüyorsun?</h3>
-            <p id="observationText"></p>
-          </div>
-        </article>
+      <section id="askPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="askKicker">Çekinmeden sor</span><h1 data-i18n="askPageTitle">Dinî Sorular</h1></div></div>
+        <p class="lead" data-i18n="askLead">İbadet, akaid, ahlak veya zihnini meşgul eden bir şüphe… Sorunu açıkça yaz.</p>
+        <div class="quick-prompts" id="askPrompts"></div>
+        <div id="askMessages" class="chat-messages"><div class="message assistant" data-i18n="askWelcome">Selâmün aleyküm. Aklına takılan konuyu yazabilirsin. Kesin fetva gereken meselelerde ehil bir âlime danışmanı da hatırlatacağım.</div></div>
+        <form id="askForm" class="composer"><textarea id="askInput" rows="2" data-i18n-placeholder="askPlaceholder" placeholder="Sorunu yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
+      </section>
 
-        <article class="result-card">
-          <span class="card-index">02</span>
-          <div>
-            <h3 id="scienceHeading">Arkasındaki bilim</h3>
-            <p id="scienceText"></p>
-          </div>
-        </article>
+      <section id="barrierPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="barrierKicker">Açık ve yargısız bir konuşma</span><h1 data-i18n="barrierPageTitle">Seni ne engelliyor?</h1></div></div>
+        <div class="barrier-intro"><h2 data-i18n="barrierQuestion">Müslüman olmanla arandaki en büyük engel nedir?</h2><p data-i18n="barrierLead">Burada yargılanmadan konuşabilirsin. Amaç baskı kurmak değil; seni anlamak, yanlış bilgileri ayırmak ve sorularını dürüstçe ele almak.</p></div>
+        <div id="barrierPrompts" class="chip-list"></div>
+        <div id="barrierMessages" class="chat-messages"><div class="message assistant" data-i18n="barrierWelcome">Seni dinlemeye hazırım. Yaşadığın bir olay, bilimsel bir soru, ahlaki bir kaygı veya başka bir sebep olabilir.</div></div>
+        <form id="barrierForm" class="composer"><textarea id="barrierInput" rows="2" data-i18n-placeholder="barrierPlaceholder" placeholder="Düşünceni açıkça yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
+      </section>
+    </main>
 
-        <article class="result-card reflection-card">
-          <span class="card-index">03</span>
-          <div>
-            <h3 id="reflectionHeading">Tefekkür</h3>
-            <p id="reflectionText"></p>
-          </div>
-        </article>
-
-        <article id="quranCard" class="result-card quran-card hidden">
-          <span class="card-index">04</span>
-          <div>
-            <h3 id="quranHeading">İlgili ayet</h3>
-            <blockquote id="quranText"></blockquote>
-            <cite id="quranReference"></cite>
-          </div>
-        </article>
-      </div>
-
-      <div class="closing-question">
-        <span id="questionLabel">Kendine sor</span>
-        <p id="questionText"></p>
-      </div>
-
-      <button id="anotherImageButton" class="secondary-button" type="button">
-        <span id="anotherImageText">Başka bir fotoğraf seç</span>
-      </button>
-    </section>
-
-    <section id="errorSection" class="error-section hidden" aria-live="assertive">
-      <div class="error-symbol">!</div>
-      <h2 id="errorTitle">Analiz yapılamadı</h2>
-      <p id="errorText">Lütfen tekrar deneyin.</p>
-      <button id="retryButton" class="secondary-button" type="button">Tekrar dene</button>
-    </section>
-
-    <footer>
-      <span id="footerText">Bak. Düşün. Hatırla.</span>
-    </footer>
-  </main>
-
-  <input id="cameraInput" class="visually-hidden" type="file" accept="image/*" capture="environment" />
-  <input id="galleryInput" class="visually-hidden" type="file" accept="image/*" />
-
-  <script src="/app.js" defer></script>
+    <nav class="bottom-nav">
+      <button data-nav="home" class="active"><span>⌂</span><small data-i18n="home">Ana Sayfa</small></button>
+      <button data-nav="reflect"><span>◎</span><small data-i18n="reflectTitle">Tefekkür</small></button>
+      <button data-nav="learn"><span>⌘</span><small data-i18n="learnTitle">Öğren</small></button>
+      <button data-nav="ask"><span>?</span><small data-i18n="askTitle">Sor</small></button>
+    </nav>
+  </div>
+  <script src="/content.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>

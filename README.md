@@ -1,31 +1,24 @@
-# Düşünmez misiniz?
+# Hikmet v1
 
-Telefon ve masaüstü tarayıcılarında çalışan, fotoğrafı OpenAI görsel modeliyle analiz edip bilimsel açıklama ve İslami tefekkür üreten web uygulaması.
+## Kurulum
+ZIP içindeki tüm dosyaları GitHub repository köküne yükleyin. `api` klasörünü koruyun.
 
-## En hızlı yayınlama: Vercel
+Vercel Environment Variables:
+- `GEMINI_API_KEY` — zorunlu
 
-1. Bu klasörü GitHub repository'sine yükleyin.
-2. Vercel'de **Add New → Project** deyip repository'yi içe aktarın.
-3. **Settings → Environment Variables** bölümüne şunu ekleyin:
-   - Name: `OPENAI_API_KEY`
-   - Value: OpenAI API anahtarınız
-   - Environments: Production, Preview, Development
-4. **Deploy** düğmesine basın.
-5. Vercel size herkese açık bir HTTPS adresi verir.
+Vercel otomatik deploy eder.
 
-## Önemli
+## Modüller
+- Fotoğraftan tefekkür
+- Üç dilde öğrenme kütüphanesi
+- Dinî soru-cevap sohbeti
+- İslam'ı keşfet / engeller sohbeti
+- Konuma göre yaklaşık namaz vakitleri
+- Karanlık mod ve PWA
 
-API anahtarını `app.js`, HTML, GitHub repository veya başka istemci dosyasına yazmayın. Anahtar yalnızca Vercel environment variable olarak saklanmalıdır.
+## Kaynak notu
+Quran.com'un güncel Content API'si uygulama kimlik bilgileri ister. Sunnah.com API'si de ayrı API anahtarı ister.
+Bu ilk sürüm, yalnızca `GEMINI_API_KEY` ile hemen çalışabilmesi için seçilmiş ayet ve sahih hadisleri kaynak bağlantılarıyla yerel olarak sunar.
+İleriki sürümde Quran Foundation ve Sunnah.com anahtarları alındığında canlı arama eklenebilir.
 
-## Yerel geliştirme
-
-```bash
-npm install
-npx vercel dev
-```
-
-Yerelde `.env.local` dosyasına şunu ekleyin:
-
-```env
-OPENAI_API_KEY=sk-...
-```
+Namaz vakitleri AlAdhan üzerinden yaklaşık olarak gelir; yerel cami takvimi esas alınmalıdır.
