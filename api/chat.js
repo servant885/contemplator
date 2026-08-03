@@ -9,7 +9,7 @@ const MAX_MESSAGE_CHARS=4000;
 const MAX_HISTORY_ITEMS=8;
 const MAX_HISTORY_ITEM_CHARS=3000;
 const MAX_TOTAL_INPUT_CHARS=16000;
-const MAX_OUTPUT_TOKENS=1536;
+const MAX_OUTPUT_TOKENS=3072;
 const REQUEST_TIMEOUT_MS=30000;
 const BURST_LIMIT=3;
 const BURST_WINDOW_SECONDS=60;
@@ -30,7 +30,7 @@ Core conduct:
 - Never dismiss a person's trauma or tell them that suffering proves weak faith.
 - When context is unclear, ask at most one focused follow-up question instead of guessing.
 - Prefer a warm, concise conversation over a long lecture.
-- Keep normal answers under about 500 words unless the user explicitly requests a detailed explanation.
+- Keep normal answers concise, usually under about 350 words unless the user explicitly requests detail. Always finish the final sentence and never end mid-thought.
 - When useful, provide one practical next step that is small and realistic.
 - Mention a Qur'an verse or hadith only when highly confident in the wording, meaning and reference. Never invent or approximate a quotation. Paraphrase rather than quote if uncertain.
 - Clearly acknowledge legitimate scholarly disagreement.
@@ -260,7 +260,10 @@ async function callGemini({apiKey,selectedLanguage,contents}){
       .join("\n")
       .trim()||"";
 
-    return text;
+    return {
+      text,
+      finishReason:candidate?.finishReason||""
+    };
   }finally{
     clearTimeout(timeout);
   }
@@ -314,8 +317,35 @@ export default async function handler(req,res){
 
     const selectedLanguage=LANGUAGE_NAMES[language]||"English";
     const conversation=normalizeConversation(history,normalizedMessage);
-    const text=await callGemini({apiKey,selectedLanguage,contents:conversation});
-    const reply=cleanReply(text);
+    const first=await callGemini({apiKey,selectedLanguage,contents:conversation});
+
+    let completeText=first.text;
+
+    // Rare fallback: only continue when Gemini explicitly reports truncation.
+    if(first.finishReason==="MAX_TOKENS"&&first.text){
+      const continuationContents=[
+        ...conversation,
+        {role:"model",parts:[{text:first.text}]},
+        {
+          role:"user",
+          parts:[{
+            text:"Continue exactly where you stopped. Do not repeat earlier text. Finish briefly and end with a complete sentence."
+          }]
+        }
+      ];
+
+      const second=await callGemini({
+        apiKey,
+        selectedLanguage,
+        contents:continuationContents
+      });
+
+      if(second.text){
+        completeText=`${first.text}\n${second.text}`.trim();
+      }
+    }
+
+    const reply=cleanReply(completeText);
 
     if(!reply){
       return res.status(502).json({error:"Empty or invalid AI response"});
