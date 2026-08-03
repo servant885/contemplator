@@ -1,217 +1,309 @@
-const $ = (id) => document.getElementById(id);
-
-const strings = {
+const translations = {
   tr: {
-    title: "Düşünmez misiniz?",
-    eyebrow: "TEFEKKÜR ARACI",
-    subtitle: "Bir fotoğraf çek. Gördüğünün ardındaki düzeni düşün.",
-    pickLabel: "Bir fotoğraf ekle",
-    pickHint: "Kameradan çek veya galeriden seç",
-    camera: "Kamerayı aç",
-    gallery: "Galeriden seç",
-    cameraHelp: "Kamera siyah görünürse sayfayı Safari veya Chrome'da açıp kamera izni ver. Galeriden seçim her zaman kullanılabilir.",
+    brand: "Düşünmez misiniz?",
+    pageTitle: "Düşünmez misiniz?",
+    eyebrow: "Gördüğünün ötesine bak",
+    heroTitle: "Bir fotoğraf çek.<br>Tefekkür etmeye başla.",
+    heroText: "Çevrendeki herhangi bir şeyi fotoğraflandır. Yapay zekâ görüntüyü incelesin, bilimsel yönünü açıklasın ve seni yaratılış üzerine düşünmeye davet etsin.",
+    cameraTitle: "Fotoğraf çek",
+    cameraSubtitle: "Kamerayı aç",
+    galleryTitle: "Galeriden seç",
+    gallerySubtitle: "Mevcut bir fotoğraf yükle",
+    privacy: "Fotoğraf yalnızca analiz için kullanılır.",
+    previewEyebrow: "Seçtiğin görüntü",
+    previewTitle: "Hazır olduğunda üzerinde düşün.",
+    change: "Değiştir",
     analyze: "Üzerinde düşün",
-    privacy: "Fotoğraf yalnızca analiz için güvenli sunucuya gönderilir.",
-    loading: "Fotoğraf inceleniyor…",
-    science: "Bilim",
+    loadingTitle: "Görüntü inceleniyor…",
+    loadingText: "Bilimsel ayrıntılar ve tefekkür noktaları hazırlanıyor.",
+    resultEyebrow: "Tefekkür",
+    newPhoto: "Yeni fotoğraf",
+    observation: "Ne görüyorsun?",
+    science: "Arkasındaki bilim",
     reflection: "Tefekkür",
-    quran: "Kur’an’dan bir işaret",
-    seen: "GÖRDÜĞÜN",
-    again: "Başka bir fotoğraf seç",
-    error: "Analiz yapılamadı. Lütfen tekrar dene.",
-    fileError: "Bu fotoğraf açılamadı. Lütfen başka bir fotoğraf dene."
+    quran: "İlgili ayet",
+    questionLabel: "Kendine sor",
+    anotherImage: "Başka bir fotoğraf seç",
+    errorTitle: "Analiz yapılamadı",
+    errorText: "Lütfen bağlantını kontrol edip tekrar dene.",
+    retry: "Tekrar dene",
+    footer: "Bak. Düşün. Hatırla.",
+    invalidImage: "Lütfen geçerli bir fotoğraf seç.",
+    tooLarge: "Fotoğraf çok büyük. Daha küçük bir görüntü seç."
   },
   en: {
-    title: "Will You Not Reflect?",
-    eyebrow: "A TOOL FOR REFLECTION",
-    subtitle: "Take a photo. Reflect on the order behind what you see.",
-    pickLabel: "Add a photo",
-    pickHint: "Take one with the camera or choose from your gallery",
-    camera: "Open camera",
-    gallery: "Choose from gallery",
-    cameraHelp: "If the camera appears black, open this page in Safari or Chrome and allow camera access. Gallery upload will still work.",
-    analyze: "Reflect on it",
-    privacy: "The photo is sent securely only for analysis.",
-    loading: "Examining the image…",
-    science: "Science",
+    brand: "Will You Not Reflect?",
+    pageTitle: "Will You Not Reflect?",
+    eyebrow: "Look beyond what you see",
+    heroTitle: "Take a photo.<br>Begin to reflect.",
+    heroText: "Photograph anything around you. Let AI examine it, explain the science behind it, and invite you to reflect on creation.",
+    cameraTitle: "Take a photo",
+    cameraSubtitle: "Open the camera",
+    galleryTitle: "Choose from gallery",
+    gallerySubtitle: "Upload an existing photo",
+    privacy: "Your photo is used only for analysis.",
+    previewEyebrow: "Your selected image",
+    previewTitle: "Reflect on it when you are ready.",
+    change: "Change",
+    analyze: "Reflect on this",
+    loadingTitle: "Examining the image…",
+    loadingText: "Preparing its scientific details and points for reflection.",
+    resultEyebrow: "Reflection",
+    newPhoto: "New photo",
+    observation: "What do you see?",
+    science: "The science behind it",
     reflection: "Reflection",
-    quran: "A sign from the Qur’an",
-    seen: "WHAT YOU SEE",
-    again: "Choose another photo",
-    error: "The analysis failed. Please try again.",
-    fileError: "This photo could not be opened. Please try another one."
+    quran: "Related verse",
+    questionLabel: "Ask yourself",
+    anotherImage: "Choose another photo",
+    errorTitle: "Analysis failed",
+    errorText: "Please check your connection and try again.",
+    retry: "Try again",
+    footer: "Observe. Reflect. Remember.",
+    invalidImage: "Please choose a valid image.",
+    tooLarge: "The image is too large. Please choose a smaller one."
   },
   de: {
-    title: "Denkt ihr denn nicht nach?",
-    eyebrow: "WERKZEUG ZUR BESINNUNG",
-    subtitle: "Mach ein Foto. Denke über die Ordnung hinter dem Sichtbaren nach.",
-    pickLabel: "Ein Foto hinzufügen",
-    pickHint: "Mit der Kamera aufnehmen oder aus der Galerie auswählen",
-    camera: "Kamera öffnen",
-    gallery: "Aus Galerie wählen",
-    cameraHelp: "Wenn die Kamera schwarz bleibt, öffne die Seite in Safari oder Chrome und erlaube den Kamerazugriff. Die Galerie funktioniert weiterhin.",
+    brand: "Denkt ihr denn nicht nach?",
+    pageTitle: "Denkt ihr denn nicht nach?",
+    eyebrow: "Blicke über das Sichtbare hinaus",
+    heroTitle: "Mach ein Foto.<br>Beginne nachzudenken.",
+    heroText: "Fotografiere etwas aus deiner Umgebung. Die KI untersucht das Bild, erklärt die Wissenschaft dahinter und lädt dich ein, über die Schöpfung nachzudenken.",
+    cameraTitle: "Foto aufnehmen",
+    cameraSubtitle: "Kamera öffnen",
+    galleryTitle: "Aus Galerie wählen",
+    gallerySubtitle: "Vorhandenes Foto hochladen",
+    privacy: "Dein Foto wird nur zur Analyse verwendet.",
+    previewEyebrow: "Dein ausgewähltes Bild",
+    previewTitle: "Denke darüber nach, wenn du bereit bist.",
+    change: "Ändern",
     analyze: "Darüber nachdenken",
-    privacy: "Das Foto wird nur zur Analyse sicher übertragen.",
-    loading: "Das Bild wird untersucht…",
-    science: "Wissenschaft",
-    reflection: "Besinnung",
-    quran: "Ein Zeichen aus dem Qur’an",
-    seen: "WAS DU SIEHST",
-    again: "Anderes Foto auswählen",
-    error: "Die Analyse ist fehlgeschlagen. Bitte versuche es erneut.",
-    fileError: "Dieses Foto konnte nicht geöffnet werden. Bitte versuche ein anderes."
+    loadingTitle: "Das Bild wird untersucht…",
+    loadingText: "Wissenschaftliche Einzelheiten und Impulse werden vorbereitet.",
+    resultEyebrow: "Reflexion",
+    newPhoto: "Neues Foto",
+    observation: "Was siehst du?",
+    science: "Die Wissenschaft dahinter",
+    reflection: "Reflexion",
+    quran: "Passender Vers",
+    questionLabel: "Frage dich selbst",
+    anotherImage: "Anderes Foto wählen",
+    errorTitle: "Analyse fehlgeschlagen",
+    errorText: "Bitte überprüfe deine Verbindung und versuche es erneut.",
+    retry: "Erneut versuchen",
+    footer: "Beobachte. Denke nach. Erinnere dich.",
+    invalidImage: "Bitte wähle ein gültiges Bild.",
+    tooLarge: "Das Bild ist zu groß. Bitte wähle ein kleineres."
   }
 };
 
-let imageData = "";
+const elements = {
+  language: document.getElementById("languageSelect"),
+  hero: document.getElementById("heroSection"),
+  preview: document.getElementById("previewSection"),
+  loading: document.getElementById("loadingSection"),
+  result: document.getElementById("resultSection"),
+  error: document.getElementById("errorSection"),
+  cameraInput: document.getElementById("cameraInput"),
+  galleryInput: document.getElementById("galleryInput"),
+  previewImage: document.getElementById("previewImage"),
+  resultImage: document.getElementById("resultImage"),
+  analyzeButton: document.getElementById("analyzeButton")
+};
 
-function currentStrings() {
-  return strings[$("language").value];
+let selectedImage = "";
+let currentLanguage = localStorage.getItem("language") || "tr";
+
+function setText(id, value, html = false) {
+  const element = document.getElementById(id);
+  if (!element) return;
+  if (html) element.innerHTML = value;
+  else element.textContent = value;
 }
 
-function applyLanguage() {
-  const s = currentStrings();
-  document.documentElement.lang = $("language").value;
-  document.title = s.title;
-  $("appTitle").textContent = s.title;
-  $("eyebrow").textContent = s.eyebrow;
-  $("subtitle").textContent = s.subtitle;
-  $("pickLabel").textContent = s.pickLabel;
-  $("pickHint").textContent = s.pickHint;
-  $("cameraBtn").textContent = s.camera;
-  $("galleryBtn").textContent = s.gallery;
-  $("cameraHelp").textContent = s.cameraHelp;
-  $("analyzeBtn").textContent = s.analyze;
-  $("privacy").textContent = s.privacy;
-  $("scienceLabel").textContent = s.science;
-  $("reflectionLabel").textContent = s.reflection;
-  $("quranLabel").textContent = s.quran;
-  $("resultLabel").textContent = s.seen;
-  $("againBtn").textContent = s.again;
+function applyLanguage(language) {
+  currentLanguage = translations[language] ? language : "tr";
+  localStorage.setItem("language", currentLanguage);
+  elements.language.value = currentLanguage;
+  document.documentElement.lang = currentLanguage;
+
+  const t = translations[currentLanguage];
+  document.title = t.pageTitle;
+
+  setText("brandName", t.brand);
+  setText("eyebrow", t.eyebrow);
+  setText("heroTitle", t.heroTitle, true);
+  setText("heroText", t.heroText);
+  setText("cameraTitle", t.cameraTitle);
+  setText("cameraSubtitle", t.cameraSubtitle);
+  setText("galleryTitle", t.galleryTitle);
+  setText("gallerySubtitle", t.gallerySubtitle);
+  setText("privacyNote", t.privacy);
+  setText("previewEyebrow", t.previewEyebrow);
+  setText("previewTitle", t.previewTitle);
+  setText("changeImageButton", t.change);
+  setText("analyzeButtonText", t.analyze);
+  setText("loadingTitle", t.loadingTitle);
+  setText("loadingText", t.loadingText);
+  setText("resultEyebrow", t.resultEyebrow);
+  setText("newReflectionButton", t.newPhoto);
+  setText("observationHeading", t.observation);
+  setText("scienceHeading", t.science);
+  setText("reflectionHeading", t.reflection);
+  setText("quranHeading", t.quran);
+  setText("questionLabel", t.questionLabel);
+  setText("anotherImageText", t.anotherImage);
+  setText("errorTitle", t.errorTitle);
+  setText("errorText", t.errorText);
+  setText("retryButton", t.retry);
+  setText("footerText", t.footer);
 }
 
-$("language").addEventListener("change", applyLanguage);
+function showSection(section) {
+  [elements.hero, elements.preview, elements.loading, elements.result, elements.error]
+    .forEach(item => item.classList.add("hidden"));
+  section.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-$("cameraBtn").addEventListener("click", () => {
-  $("cameraHelp").hidden = false;
-  $("cameraInput").value = "";
-  $("cameraInput").click();
-});
+function resetApp() {
+  selectedImage = "";
+  elements.cameraInput.value = "";
+  elements.galleryInput.value = "";
+  showSection(elements.hero);
+}
 
-$("galleryBtn").addEventListener("click", () => {
-  $("galleryInput").value = "";
-  $("galleryInput").click();
-});
+async function prepareImage(file) {
+  const t = translations[currentLanguage];
 
-$("cameraInput").addEventListener("change", handleImageSelection);
-$("galleryInput").addEventListener("change", handleImageSelection);
+  if (!file || !file.type.startsWith("image/")) {
+    throw new Error(t.invalidImage);
+  }
 
-async function handleImageSelection(event) {
-  const file = event.target.files?.[0];
-  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) {
+    throw new Error(t.tooLarge);
+  }
 
-  const s = currentStrings();
-  $("status").hidden = false;
-  $("status").textContent = s.loading;
+  const imageUrl = URL.createObjectURL(file);
+  const image = await loadImage(imageUrl);
 
+  const maxDimension = 1600;
+  const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
+  const width = Math.round(image.width * scale);
+  const height = Math.round(image.height * scale);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext("2d");
+  context.drawImage(image, 0, 0, width, height);
+
+  URL.revokeObjectURL(imageUrl);
+  return canvas.toDataURL("image/jpeg", 0.84);
+}
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error("Image could not be loaded"));
+    image.src = url;
+  });
+}
+
+async function handleFile(file) {
   try {
-    imageData = await resizeImage(file);
-    $("preview").src = imageData;
-    $("preview").hidden = false;
-    $("analyzeBtn").disabled = false;
-    $("result").hidden = true;
-    $("status").hidden = true;
+    selectedImage = await prepareImage(file);
+    elements.previewImage.src = selectedImage;
+    showSection(elements.preview);
   } catch (error) {
-    console.error(error);
-    imageData = "";
-    $("preview").hidden = true;
-    $("analyzeBtn").disabled = true;
-    $("status").textContent = s.fileError;
+    showError(error.message);
   }
 }
 
-$("analyzeBtn").addEventListener("click", async () => {
-  const s = currentStrings();
-  $("status").hidden = false;
-  $("status").textContent = s.loading;
-  $("analyzeBtn").disabled = true;
-  $("result").hidden = true;
+function showError(message) {
+  setText("errorText", message || translations[currentLanguage].errorText);
+  showSection(elements.error);
+}
+
+function renderResult(data) {
+  elements.resultImage.src = selectedImage;
+  setText("resultTitle", data.title || translations[currentLanguage].reflection);
+  setText("observationText", data.observation || "");
+  setText("scienceText", data.science || "");
+  setText("reflectionText", data.reflection || "");
+  setText("questionText", data.question || "");
+
+  const quranCard = document.getElementById("quranCard");
+  const hasQuran = Boolean(data.quran_text && data.quran_reference);
+
+  quranCard.classList.toggle("hidden", !hasQuran);
+
+  if (hasQuran) {
+    setText("quranText", data.quran_text);
+    setText("quranReference", data.quran_reference);
+  }
+
+  showSection(elements.result);
+}
+
+async function analyzeImage() {
+  if (!selectedImage) return;
+
+  showSection(elements.loading);
 
   try {
     const response = await fetch("/api/analyze", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ image: imageData, language: $("language").value })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        image: selectedImage,
+        language: currentLanguage
+      })
     });
 
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Request failed");
+    const data = await response.json().catch(() => ({}));
 
-    render(data);
-    $("status").hidden = true;
-  } catch (error) {
-    console.error(error);
-    $("status").textContent = s.error;
-  } finally {
-    $("analyzeBtn").disabled = false;
-  }
-});
-
-$("againBtn").addEventListener("click", () => $("galleryBtn").click());
-
-function render(data) {
-  $("title").textContent = data.title;
-  $("observation").textContent = data.observation;
-  $("science").textContent = data.science;
-  $("reflection").textContent = data.reflection;
-  $("question").textContent = data.question;
-
-  if (data.quran_reference || data.quran_text) {
-    $("quranText").textContent = data.quran_text || "";
-    $("quranReference").textContent = data.quran_reference || "";
-    $("quranCard").hidden = false;
-  } else {
-    $("quranCard").hidden = true;
-  }
-
-  $("result").hidden = false;
-  $("result").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function resizeImage(file) {
-  return new Promise((resolve, reject) => {
-    if (!file.type.startsWith("image/")) {
-      reject(new Error("Unsupported file type"));
-      return;
+    if (!response.ok) {
+      throw new Error(data.error || translations[currentLanguage].errorText);
     }
 
-    const reader = new FileReader();
-    reader.onerror = reject;
-    reader.onload = () => {
-      const img = new Image();
-      img.onerror = reject;
-      img.onload = () => {
-        const max = 1400;
-        let width = img.width;
-        let height = img.height;
-
-        if (Math.max(width, height) > max) {
-          const scale = max / Math.max(width, height);
-          width = Math.round(width * scale);
-          height = Math.round(height * scale);
-        }
-
-        const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
-        const context = canvas.getContext("2d");
-        context.drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL("image/jpeg", 0.82));
-      };
-      img.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  });
+    renderResult(data);
+  } catch (error) {
+    showError(error.message);
+  }
 }
 
-applyLanguage();
+document.getElementById("cameraButton").addEventListener("click", () => {
+  elements.cameraInput.click();
+});
+
+document.getElementById("galleryButton").addEventListener("click", () => {
+  elements.galleryInput.click();
+});
+
+elements.cameraInput.addEventListener("change", event => {
+  handleFile(event.target.files?.[0]);
+});
+
+elements.galleryInput.addEventListener("change", event => {
+  handleFile(event.target.files?.[0]);
+});
+
+elements.language.addEventListener("change", event => {
+  applyLanguage(event.target.value);
+});
+
+elements.analyzeButton.addEventListener("click", analyzeImage);
+document.getElementById("changeImageButton").addEventListener("click", () => elements.galleryInput.click());
+document.getElementById("newReflectionButton").addEventListener("click", resetApp);
+document.getElementById("anotherImageButton").addEventListener("click", resetApp);
+document.getElementById("retryButton").addEventListener("click", () => {
+  if (selectedImage) analyzeImage();
+  else resetApp();
+});
+
+applyLanguage(currentLanguage);
