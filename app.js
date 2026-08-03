@@ -1,166 +1,131 @@
-const I18N={
-tr:{heroKicker:"İlim, tefekkür ve rehberlik",heroTitle:"Hakikati ara.<br>Hikmeti keşfet.",heroText:"Çevrene dikkatle bak, İslam'ı güvenilir kaynaklardan öğren ve aklına takılanları çekinmeden sor.",wisdomVerse:"“Kime hikmet verilmişse, ona pek çok hayır verilmiş demektir.”",wisdomRef:"Bakara 2:269",reflectTitle:"Tefekkür",reflectDesc:"Bir fotoğrafın ardındaki bilimi ve hikmeti gör.",learnTitle:"Öğren",learnDesc:"Ayetler, hadisler ve temel İslami konular.",askTitle:"Sor",askDesc:"İbadet, inanç ve şüphelerin hakkında konuş.",barrierTitle:"İslam'ı Keşfet",barrierDesc:"Müslüman olmana engel olan şeyi açıkça konuş.",barrierNav:"Keşfet",prayerKicker:"Bugünün vakitleri",prayerTitle:"Namaz vakitleri",useLocation:"Konumumu kullan",prayerHint:"Konum izni verirsen bugünün yaklaşık vakitlerini gösterebiliriz.",reflectKicker:"Gördüğünün ötesine bak",reflectPageTitle:"Tefekkür",reflectLead:"Kamerayla çek veya galeriden seç. Yapay zekâ görüntünün bilimsel yönünü açıklayıp seni tefekküre davet etsin.",chooseImage:"Bir görüntü seç",chooseImageHint:"Doğa, gökyüzü, bir eşya veya günlük hayattan herhangi bir şey.",takePhoto:"Fotoğraf çek",chooseGallery:"Galeriden seç",analyze:"Üzerinde düşün",change:"Değiştir",analyzing:"Görüntü inceleniyor…",observation:"Ne görüyorsun?",science:"Arkasındaki bilim",reflection:"Tefekkür",relatedVerse:"İlgili ayet",askYourself:"Kendine sor",newImage:"Yeni görüntü",learnKicker:"Güvenilir kaynaklarla",learnPageTitle:"Öğren",learnLead:"Kur'an'dan ayetler, sahih hadisler ve temel konularda kısa, anlaşılır içerikler.",all:"Tümü",quran:"Kur'an",hadith:"Hadis",topics:"Konular",sourceNote:"Ayet ve hadis metinleri kaynak referanslarıyla sunulur. Ayrıntılı inceleme için kaynak bağlantısını aç.",askKicker:"Çekinmeden sor",askPageTitle:"Dinî Sorular",askLead:"İbadet, akaid, ahlak veya zihnini meşgul eden bir şüphe… Sorunu açıkça yaz.",askWelcome:"Selâmün aleyküm. Aklına takılan konuyu yazabilirsin. Kesin fetva gereken meselelerde ehil bir âlime danışmanı da hatırlatacağım.",askPlaceholder:"Sorunu yaz…",barrierKicker:"Açık ve yargısız bir konuşma",barrierPageTitle:"Seni ne engelliyor?",barrierQuestion:"Müslüman olmanla arandaki en büyük engel nedir?",barrierLead:"Burada yargılanmadan konuşabilirsin. Amaç baskı kurmak değil; seni anlamak, yanlış bilgileri ayırmak ve sorularını dürüstçe ele almak.",barrierWelcome:"Seni dinlemeye hazırım. Yaşadığın bir olay, bilimsel bir soru, ahlaki bir kaygı veya başka bir sebep olabilir.",barrierPlaceholder:"Düşünceni açıkça yaz…",home:"Ana Sayfa",source:"Kaynağı aç",prayerError:"Vakitler alınamadı. Konum iznini ve bağlantını kontrol et.",approx:"Yaklaşık vakitler — yerel caminin takvimini esas al.",dailyVerse:"Günün ayeti",dailyHadith:"Günün hadisi",save:"Kaydet",saved:"Kaydedildi",share:"Paylaş",savedKicker:"Sana kalanlar",savedTitle:"Kayıtlar",savedLead:"Kaydettiğin ayet, hadis ve tefekkürler bu cihazda saklanır.",noSaved:"Henüz kayıt yok.",delete:"Sil",shareFallback:"Metin panoya kopyalandı.",chatEmpty:"Yapay zekâ boş cevap döndürdü. Lütfen tekrar dene.",chatTimeout:"Yanıt süresi doldu. Tekrar dene.",chatTyping:"Hikmet yazıyor",chatCancel:"Yanıtı durdur",chatCancelled:"İstek iptal edildi.",send:"Gönder",askPrompts:["Namaza nasıl başlayabilirim?","Kaza namazı nasıl kılınır?","Allah neden kötülüğe izin veriyor?","Evrim ve İslam çelişir mi?"],barrierPrompts:["Müslümanların davranışları","Bilim ve evrim","Kadın hakları","Kötülük problemi","Ailem veya çevrem","Emin değilim"]},
-en:{heroKicker:"Knowledge, reflection and guidance",heroTitle:"Seek truth.<br>Discover wisdom.",heroText:"Observe the world carefully, learn Islam from reliable sources, and ask what is on your mind without hesitation.",wisdomVerse:"“Whoever is granted wisdom has certainly been granted abundant good.”",wisdomRef:"Qur'an 2:269",reflectTitle:"Reflect",reflectDesc:"See the science and wisdom behind a photograph.",learnTitle:"Learn",learnDesc:"Verses, hadith and essential Islamic topics.",askTitle:"Ask",askDesc:"Talk about worship, belief and doubts.",barrierTitle:"Explore Islam",barrierDesc:"Speak openly about what stands between you and Islam.",barrierNav:"Explore",prayerKicker:"Today's times",prayerTitle:"Prayer times",useLocation:"Use my location",prayerHint:"Allow location access to view approximate prayer times for today.",reflectKicker:"Look beyond what you see",reflectPageTitle:"Reflection",reflectLead:"Take a photo or choose one from your gallery. AI will explain its scientific dimension and invite reflection.",chooseImage:"Choose an image",chooseImageHint:"Nature, the sky, an object, or anything from daily life.",takePhoto:"Take photo",chooseGallery:"Choose from gallery",analyze:"Reflect on it",change:"Change",analyzing:"Examining the image…",observation:"What do you see?",science:"The science behind it",reflection:"Reflection",relatedVerse:"Related verse",askYourself:"Ask yourself",newImage:"New image",learnKicker:"With reliable sources",learnPageTitle:"Learn",learnLead:"Short, clear content from the Qur'an, authentic hadith, and essential topics.",all:"All",quran:"Qur'an",hadith:"Hadith",topics:"Topics",sourceNote:"Verses and hadith are presented with source references. Open the source for further study.",askKicker:"Ask freely",askPageTitle:"Religious Questions",askLead:"Worship, creed, character, or a doubt occupying your mind—write it openly.",askWelcome:"Peace be upon you. Write what is on your mind. For matters requiring a binding legal verdict, I will also remind you to consult a qualified scholar.",askPlaceholder:"Write your question…",barrierKicker:"An open, non-judgmental conversation",barrierPageTitle:"What holds you back?",barrierQuestion:"What is the biggest barrier between you and becoming Muslim?",barrierLead:"You can speak here without being judged. The aim is not pressure, but understanding you, separating misinformation, and addressing your questions honestly.",barrierWelcome:"I am ready to listen. It may be an experience, a scientific question, an ethical concern, or something else.",barrierPlaceholder:"Write your thoughts openly…",home:"Home",source:"Open source",prayerError:"Could not load times. Check location permission and connection.",approx:"Approximate times — follow your local mosque's timetable.",dailyVerse:"Verse of the day",dailyHadith:"Hadith of the day",save:"Save",saved:"Saved",share:"Share",savedKicker:"What you kept",savedTitle:"Saved",savedLead:"Your saved verses, hadith and reflections remain on this device.",noSaved:"Nothing saved yet.",delete:"Delete",shareFallback:"Text copied to clipboard.",chatEmpty:"The AI returned an empty response. Please try again.",chatTimeout:"The response timed out. Please try again.",chatTyping:"Hikmet is typing",chatCancel:"Stop response",chatCancelled:"Request cancelled.",send:"Send",askPrompts:["How can I begin praying?","How are missed prayers made up?","Why does Allah allow evil?","Do evolution and Islam conflict?"],barrierPrompts:["Muslims' behaviour","Science and evolution","Women's rights","Problem of evil","Family or society","I am unsure"]},
-de:{heroKicker:"Wissen, Reflexion und Orientierung",heroTitle:"Suche die Wahrheit.<br>Entdecke Weisheit.",heroText:"Beobachte deine Umgebung aufmerksam, lerne den Islam aus verlässlichen Quellen und stelle deine Fragen offen.",wisdomVerse:"„Wem Weisheit gegeben wird, dem wurde gewiss viel Gutes gegeben.“",wisdomRef:"Koran 2:269",reflectTitle:"Reflektieren",reflectDesc:"Erkenne Wissenschaft und Weisheit hinter einem Foto.",learnTitle:"Lernen",learnDesc:"Verse, Hadithe und grundlegende islamische Themen.",askTitle:"Fragen",askDesc:"Sprich über Gottesdienst, Glauben und Zweifel.",barrierTitle:"Islam entdecken",barrierDesc:"Sprich offen darüber, was zwischen dir und dem Islam steht.",barrierNav:"Entdecken",prayerKicker:"Heutige Zeiten",prayerTitle:"Gebetszeiten",useLocation:"Meinen Standort nutzen",prayerHint:"Erlaube den Standortzugriff, um ungefähre Gebetszeiten anzuzeigen.",reflectKicker:"Blicke über das Sichtbare hinaus",reflectPageTitle:"Reflexion",reflectLead:"Mach ein Foto oder wähle eines aus der Galerie. Die KI erklärt die wissenschaftliche Seite und lädt zum Nachdenken ein.",chooseImage:"Bild auswählen",chooseImageHint:"Natur, Himmel, ein Gegenstand oder etwas aus dem Alltag.",takePhoto:"Foto aufnehmen",chooseGallery:"Aus Galerie wählen",analyze:"Darüber nachdenken",change:"Ändern",analyzing:"Das Bild wird untersucht…",observation:"Was siehst du?",science:"Die Wissenschaft dahinter",reflection:"Reflexion",relatedVerse:"Passender Vers",askYourself:"Frage dich",newImage:"Neues Bild",learnKicker:"Mit verlässlichen Quellen",learnPageTitle:"Lernen",learnLead:"Kurze, verständliche Inhalte aus Koran, authentischen Hadithen und Grundthemen.",all:"Alle",quran:"Koran",hadith:"Hadith",topics:"Themen",sourceNote:"Verse und Hadithe werden mit Quellenangaben dargestellt. Öffne die Quelle für weitere Prüfung.",askKicker:"Frage ohne Scheu",askPageTitle:"Religiöse Fragen",askLead:"Gottesdienst, Glaubenslehre, Charakter oder ein Zweifel—schreibe offen.",askWelcome:"Friede sei mit dir. Schreibe, was dich beschäftigt. Bei Fragen, die ein verbindliches Rechtsurteil benötigen, erinnere ich dich daran, qualifizierte Gelehrte zu fragen.",askPlaceholder:"Schreibe deine Frage…",barrierKicker:"Ein offenes Gespräch ohne Verurteilung",barrierPageTitle:"Was hält dich zurück?",barrierQuestion:"Was ist das größte Hindernis zwischen dir und dem Islam?",barrierLead:"Du kannst hier ohne Verurteilung sprechen. Es geht nicht um Druck, sondern darum, dich zu verstehen, Fehlinformationen zu klären und Fragen ehrlich zu behandeln.",barrierWelcome:"Ich höre dir zu. Es kann ein Erlebnis, eine wissenschaftliche Frage, eine ethische Sorge oder etwas anderes sein.",barrierPlaceholder:"Schreibe deine Gedanken offen…",home:"Start",source:"Quelle öffnen",prayerError:"Zeiten konnten nicht geladen werden. Prüfe Standortfreigabe und Verbindung.",approx:"Ungefähre Zeiten — richte dich nach dem Kalender deiner örtlichen Moschee.",dailyVerse:"Vers des Tages",dailyHadith:"Hadith des Tages",save:"Speichern",saved:"Gespeichert",share:"Teilen",savedKicker:"Was du behalten hast",savedTitle:"Gespeichert",savedLead:"Gespeicherte Verse, Hadithe und Reflexionen bleiben auf diesem Gerät.",noSaved:"Noch nichts gespeichert.",delete:"Löschen",shareFallback:"Text wurde kopiert.",chatEmpty:"Die KI hat leer geantwortet. Bitte erneut versuchen.",chatTimeout:"Zeitüberschreitung. Bitte erneut versuchen.",askPrompts:["Wie beginne ich mit dem Gebet?","Wie hole ich verpasste Gebete nach?","Warum lässt Allah Böses zu?","Widersprechen Evolution und Islam einander?"],barrierPrompts:["Verhalten von Muslimen","Wissenschaft und Evolution","Frauenrechte","Problem des Bösen","Familie oder Umfeld","Ich bin unsicher"]}}
-
-Object.assign(I18N,window.HIKMET_EXTRA_I18N||{});
-Object.entries({"tr": {"superKicker": "Hikmet v11", "superTitle": "İslami yaşam araçları", "duaTitle": "Dualar", "duaDesc": "Günlük ve sahih dua seçkisi.", "namesTitle": "Esmâü’l-Hüsnâ", "namesDesc": "Allah’ın güzel isimlerini öğren.", "zakatTitle": "Zekât", "zakatDesc": "Basit ve şeffaf hesaplayıcı.", "ramadanTitle": "Ramazan", "ramadanDesc": "İbadet ve hedef planlayıcısı.", "mosquesTitle": "Yakındaki Camiler", "mosquesDesc": "Haritada yakın camileri aç.", "favoritesTitle": "Favoriler", "favoritesDesc": "Kaydettiğin içeriklere dön.", "duaKicker": "Kur’an ve sahih sünnetten", "duaSearchPlaceholder": "Dua ara…", "namesKicker": "Tanı, anla, zikret", "namesSearchPlaceholder": "İsim veya anlam ara…", "zakatKicker": "Yaklaşık hesaplama", "zakatLead": "Nakit, altın, ticaret malları ve borçlarını gir. Sonuç genel bir tahmindir; özel durumlarda ehil bir âlime danış.", "cash": "Nakit ve banka", "gold": "Altın ve gümüş değeri", "business": "Ticaret malları", "investments": "Zekâta tabi yatırımlar", "debts": "Kısa vadeli borçlar", "nisab": "Nisap değeri", "calculate": "Hesapla", "zakatDue": "Tahmini zekât", "belowNisab": "Net mal varlığı nisabın altında görünüyor.", "ramadanKicker": "Niyet ve istikrar", "ramadanPlanner": "Kişisel Ramazan planlayıcın", "goalPlaceholder": "Yeni hedef…", "add": "Ekle", "completed": "Tamamlanan", "total": "Toplam", "mosquesKicker": "Haritada bul", "mosquesLead": "Konumunu kullanarak yakındaki camileri harita uygulamasında aç.", "findMosques": "Yakındaki camileri bul", "mosquesPrivacy": "Konumun yalnızca harita araması için kullanılır.", "favoritesKicker": "Senin seçtiklerin", "readLastAnswer": "Son cevabı dinle", "shareConversation": "Konuşmayı paylaş", "notifications": "Bildirimler", "notificationsHint": "Günlük hatırlatmalar için izin ver", "enable": "Etkinleştir", "privacyKicker": "Şeffaflık", "privacyTitle": "Gizlilik", "privacyText": "Fotoğraflar analiz için API’ye gönderilir; sohbet ve geçmiş verileri varsayılan olarak yalnızca cihazında tutulur. Hassas kişisel bilgi paylaşmaman önerilir.", "install": "Uygulamayı yükle", "favoriteAdded": "Favorilere eklendi", "favoriteRemoved": "Favorilerden çıkarıldı", "noFavorites": "Henüz favori yok.", "voiceUnsupported": "Bu tarayıcı sesli girişi desteklemiyor.", "notificationGranted": "Bildirim izni verildi.", "dailyReminder": "Günün ayeti ve tefekkürünü unutma."}, "en": {"superKicker": "Hikmet v11", "superTitle": "Islamic life tools", "duaTitle": "Du'as", "duaDesc": "A daily collection from reliable sources.", "namesTitle": "Names of Allah", "namesDesc": "Learn the beautiful names of Allah.", "zakatTitle": "Zakat", "zakatDesc": "A simple and transparent calculator.", "ramadanTitle": "Ramadan", "ramadanDesc": "Worship and goal planner.", "mosquesTitle": "Nearby Mosques", "mosquesDesc": "Open nearby mosques on the map.", "favoritesTitle": "Favorites", "favoritesDesc": "Return to saved content.", "duaKicker": "From the Qur'an and authentic Sunnah", "duaSearchPlaceholder": "Search du'as…", "namesKicker": "Know, understand and remember", "namesSearchPlaceholder": "Search a name or meaning…", "zakatKicker": "Approximate calculation", "zakatLead": "Enter cash, gold, business assets and debts. This is a general estimate; consult a qualified scholar for personal cases.", "cash": "Cash and bank", "gold": "Gold and silver value", "business": "Business inventory", "investments": "Zakatable investments", "debts": "Short-term debts", "nisab": "Nisab value", "calculate": "Calculate", "zakatDue": "Estimated zakat", "belowNisab": "Net assets appear below nisab.", "ramadanKicker": "Intention and consistency", "ramadanPlanner": "Your personal Ramadan planner", "goalPlaceholder": "New goal…", "add": "Add", "completed": "Completed", "total": "Total", "mosquesKicker": "Find on the map", "mosquesLead": "Use your location to open nearby mosques in your maps app.", "findMosques": "Find nearby mosques", "mosquesPrivacy": "Your location is used only for the map search.", "favoritesKicker": "Your selections", "readLastAnswer": "Listen to last answer", "shareConversation": "Share conversation", "notifications": "Notifications", "notificationsHint": "Allow daily reminders", "enable": "Enable", "privacyKicker": "Transparency", "privacyTitle": "Privacy", "privacyText": "Photos are sent to the API for analysis; chats and history are stored only on your device by default. Avoid sharing sensitive personal information.", "install": "Install app", "favoriteAdded": "Added to favorites", "favoriteRemoved": "Removed from favorites", "noFavorites": "No favorites yet.", "voiceUnsupported": "Voice input is not supported by this browser.", "notificationGranted": "Notification permission granted.", "dailyReminder": "Remember today's verse and reflection."}, "de": {"superKicker": "Hikmet v11", "superTitle": "Islamische Alltagswerkzeuge", "duaTitle": "Bittgebete", "duaDesc": "Eine tägliche Auswahl aus zuverlässigen Quellen.", "namesTitle": "Namen Allahs", "namesDesc": "Lerne die schönen Namen Allahs.", "zakatTitle": "Zakat", "zakatDesc": "Ein einfacher und transparenter Rechner.", "ramadanTitle": "Ramadan", "ramadanDesc": "Planer für Gottesdienst und Ziele.", "mosquesTitle": "Moscheen in der Nähe", "mosquesDesc": "Öffne nahe Moscheen auf der Karte.", "favoritesTitle": "Favoriten", "favoritesDesc": "Kehre zu gespeicherten Inhalten zurück.", "duaKicker": "Aus Koran und authentischer Sunna", "duaSearchPlaceholder": "Bittgebet suchen…", "namesKicker": "Erkennen, verstehen und gedenken", "namesSearchPlaceholder": "Name oder Bedeutung suchen…", "zakatKicker": "Ungefähre Berechnung", "zakatLead": "Gib Bargeld, Gold, Handelsgüter und Schulden ein. Das Ergebnis ist eine allgemeine Schätzung.", "cash": "Bargeld und Bank", "gold": "Wert von Gold und Silber", "business": "Handelswaren", "investments": "Zakatpflichtige Anlagen", "debts": "Kurzfristige Schulden", "nisab": "Nisab-Wert", "calculate": "Berechnen", "zakatDue": "Geschätzte Zakat", "belowNisab": "Das Nettovermögen scheint unter dem Nisab zu liegen.", "ramadanKicker": "Absicht und Beständigkeit", "ramadanPlanner": "Dein persönlicher Ramadan-Planer", "goalPlaceholder": "Neues Ziel…", "add": "Hinzufügen", "completed": "Erledigt", "total": "Gesamt", "mosquesKicker": "Auf der Karte finden", "mosquesLead": "Nutze deinen Standort, um nahe Moscheen in der Karten-App zu öffnen.", "findMosques": "Moscheen finden", "mosquesPrivacy": "Der Standort wird nur für die Kartensuche verwendet.", "favoritesKicker": "Deine Auswahl", "readLastAnswer": "Letzte Antwort anhören", "shareConversation": "Gespräch teilen", "notifications": "Benachrichtigungen", "notificationsHint": "Tägliche Erinnerungen erlauben", "enable": "Aktivieren", "privacyKicker": "Transparenz", "privacyTitle": "Datenschutz", "privacyText": "Fotos werden zur Analyse an die API gesendet; Gespräche und Verlauf bleiben standardmäßig auf deinem Gerät.", "install": "App installieren", "favoriteAdded": "Zu Favoriten hinzugefügt", "favoriteRemoved": "Aus Favoriten entfernt", "noFavorites": "Noch keine Favoriten.", "voiceUnsupported": "Dieser Browser unterstützt keine Spracheingabe.", "notificationGranted": "Benachrichtigungen aktiviert.", "dailyReminder": "Vergiss den heutigen Vers und die Reflexion nicht."}}).forEach(([k,v])=>{I18N[k]=Object.assign(I18N[k]||I18N.en,v)});
-Object.entries({"tr": {"toolsKicker": "Günlük araçlar", "toolsTitle": "İbadet ve hatırlama", "tasbihTitle": "Tesbih", "tasbihDesc": "Zikrini sade biçimde takip et.", "qiblaTitle": "Kıble", "qiblaDesc": "Konumuna göre kıble yönünü gör.", "historyTitle": "Geçmiş", "historyDesc": "Önceki sohbet ve tefekkürlerini aç.", "settingsTitle": "Ayarlar", "settingsDesc": "Dil, tema ve yazı boyutu.", "learnSearchPlaceholder": "Ayet, hadis veya konu ara…", "newConversation": "Yeni konuşma", "tasbihKicker": "Sade ve dikkat dağıtmayan", "tapToCount": "Saymak için dokun", "reset": "Sıfırla", "qiblaKicker": "Konumuna göre", "qiblaLead": "Konum izni verdiğinde Kâbe yönünü hesaplarız. Telefon pusulası destekleniyorsa ok hareket eder.", "qiblaHint": "Başlamak için konumunu kullan.", "historyKicker": "Cihazında saklananlar", "conversations": "Sohbetler", "reflections": "Tefekkürler", "clearHistory": "Geçmişi temizle", "settingsKicker": "Kişiselleştir", "language": "Dil", "languageHint": "Uygulama ve AI cevap dili", "appearance": "Görünüm", "appearanceHint": "Açık veya karanlık tema", "light": "Açık", "dark": "Karanlık", "fontSize": "Yazı boyutu", "fontSizeHint": "Okuma rahatlığı için ayarla", "saveHistory": "Geçmişi kaydet", "saveHistoryHint": "Sohbet ve tefekkürleri bu cihazda sakla", "emptyHistory": "Henüz kayıtlı bir içerik yok.", "historyCleared": "Geçmiş temizlendi.", "qiblaReady": "Kıble yönü hesaplandı.", "qiblaError": "Kıble yönü hesaplanamadı.", "categories": ["Kur'an", "Hadis", "İbadet", "Ahlak", "İman", "Şüpheler"]}, "en": {"toolsKicker": "Daily tools", "toolsTitle": "Worship and remembrance", "tasbihTitle": "Tasbih", "tasbihDesc": "Track your dhikr without distraction.", "qiblaTitle": "Qibla", "qiblaDesc": "Find the Qibla direction from your location.", "historyTitle": "History", "historyDesc": "Open previous chats and reflections.", "settingsTitle": "Settings", "settingsDesc": "Language, theme and text size.", "learnSearchPlaceholder": "Search verses, hadith or topics…", "newConversation": "New conversation", "tasbihKicker": "Simple and distraction-free", "tapToCount": "Tap to count", "reset": "Reset", "qiblaKicker": "Based on your location", "qiblaLead": "Allow location access to calculate the direction of the Kaaba. The arrow can follow the compass on supported phones.", "qiblaHint": "Use your location to begin.", "historyKicker": "Stored on this device", "conversations": "Conversations", "reflections": "Reflections", "clearHistory": "Clear history", "settingsKicker": "Personalize", "language": "Language", "languageHint": "App and AI response language", "appearance": "Appearance", "appearanceHint": "Light or dark theme", "light": "Light", "dark": "Dark", "fontSize": "Text size", "fontSizeHint": "Adjust for comfortable reading", "saveHistory": "Save history", "saveHistoryHint": "Store chats and reflections on this device", "emptyHistory": "Nothing has been saved yet.", "historyCleared": "History cleared.", "qiblaReady": "Qibla direction calculated.", "qiblaError": "Could not calculate Qibla direction.", "categories": ["Qur'an", "Hadith", "Worship", "Character", "Faith", "Doubts"]}, "de": {"toolsKicker": "Tägliche Werkzeuge", "toolsTitle": "Gottesdienst und Gedenken", "tasbihTitle": "Tasbih", "tasbihDesc": "Verfolge deinen Dhikr ohne Ablenkung.", "qiblaTitle": "Qibla", "qiblaDesc": "Finde die Gebetsrichtung von deinem Standort.", "historyTitle": "Verlauf", "historyDesc": "Öffne frühere Gespräche und Reflexionen.", "settingsTitle": "Einstellungen", "settingsDesc": "Sprache, Design und Textgröße.", "learnSearchPlaceholder": "Verse, Hadithe oder Themen suchen…", "newConversation": "Neues Gespräch", "tasbihKicker": "Einfach und ablenkungsfrei", "tapToCount": "Zum Zählen tippen", "reset": "Zurücksetzen", "qiblaKicker": "Basierend auf deinem Standort", "qiblaLead": "Erlaube den Standortzugriff, um die Richtung der Kaaba zu berechnen.", "qiblaHint": "Nutze deinen Standort, um zu beginnen.", "historyKicker": "Auf diesem Gerät gespeichert", "conversations": "Gespräche", "reflections": "Reflexionen", "clearHistory": "Verlauf löschen", "settingsKicker": "Personalisieren", "language": "Sprache", "languageHint": "Sprache der App und KI-Antworten", "appearance": "Darstellung", "appearanceHint": "Helles oder dunkles Design", "light": "Hell", "dark": "Dunkel", "fontSize": "Textgröße", "fontSizeHint": "Für bequemes Lesen anpassen", "saveHistory": "Verlauf speichern", "saveHistoryHint": "Gespräche und Reflexionen auf diesem Gerät speichern", "emptyHistory": "Noch nichts gespeichert.", "historyCleared": "Verlauf gelöscht.", "qiblaReady": "Qibla-Richtung berechnet.", "qiblaError": "Qibla-Richtung konnte nicht berechnet werden.", "categories": ["Koran", "Hadith", "Gottesdienst", "Charakter", "Glaube", "Zweifel"]}}).forEach(([k,v])=>{I18N[k]=Object.assign(I18N[k]||I18N.en,v)});
-
-const CONTENT={tr:[
-{type:"quran",title:"Hikmet ve büyük hayır",text:"Kime hikmet verilmişse, ona pek çok hayır verilmiş demektir.",ref:"Bakara 2:269",url:"https://quran.com/2/269"},{type:"quran",title:"Kalplerin huzuru",text:"Bilesiniz ki kalpler ancak Allah'ı anmakla huzur bulur.",ref:"Ra'd 13:28",url:"https://quran.com/13/28"},{type:"quran",title:"Ümit kapısı",text:"Allah'ın rahmetinden ümit kesmeyin.",ref:"Zümer 39:53",url:"https://quran.com/39/53"},{type:"hadith",title:"Ameller niyetlere göredir",text:"Ameller niyetlere göredir ve herkese ancak niyet ettiği vardır.",ref:"Sahih Buhârî 1",url:"https://sunnah.com/bukhari:1"},{type:"hadith",title:"Kur'an'ı öğrenmek",text:"Sizin en hayırlınız Kur'an'ı öğrenen ve öğretendir.",ref:"Sahih Buhârî 5027",url:"https://sunnah.com/bukhari:5027"},{type:"hadith",title:"Yumuşaklık",text:"Allah yumuşaktır ve yumuşaklığı sever.",ref:"Sahih Müslim 2593",url:"https://sunnah.com/muslim:2593"},{type:"topic",title:"Namaza başlamak",text:"Mükemmel olmayı bekleme. Vakit namazını vaktinde kılmakla başla; küçük ama devamlı adımlar değerlidir.",ref:"Temel ibadet",url:"https://quran.com/2/238"},{type:"topic",title:"Şüphelerle baş etmek",text:"Şüpheyi bastırmak yerine kaynağını belirle, güvenilir ilim ehline sor ve delilleri birlikte değerlendir.",ref:"İman ve düşünce",url:"https://quran.com/16/43"}],
-en:[{type:"quran",title:"Wisdom and abundant good",text:"Whoever is granted wisdom has certainly been granted abundant good.",ref:"Qur'an 2:269",url:"https://quran.com/2/269"},{type:"quran",title:"Rest for the hearts",text:"Surely in the remembrance of Allah do hearts find comfort.",ref:"Qur'an 13:28",url:"https://quran.com/13/28"},{type:"quran",title:"The door of hope",text:"Do not lose hope in Allah's mercy.",ref:"Qur'an 39:53",url:"https://quran.com/39/53"},{type:"hadith",title:"Actions are by intentions",text:"Actions are judged by intentions, and every person will have what they intended.",ref:"Sahih al-Bukhari 1",url:"https://sunnah.com/bukhari:1"},{type:"hadith",title:"Learning the Qur'an",text:"The best among you are those who learn the Qur'an and teach it.",ref:"Sahih al-Bukhari 5027",url:"https://sunnah.com/bukhari:5027"},{type:"hadith",title:"Gentleness",text:"Allah is gentle and loves gentleness.",ref:"Sahih Muslim 2593",url:"https://sunnah.com/muslim:2593"},{type:"topic",title:"Beginning prayer",text:"Do not wait to become perfect. Begin with the current prayer and build consistency gradually.",ref:"Foundations of worship",url:"https://quran.com/2/238"},{type:"topic",title:"Working through doubts",text:"Identify the source of a doubt, consult qualified scholarship, and examine the evidence carefully.",ref:"Faith and reason",url:"https://quran.com/16/43"}],
-de:[{type:"quran",title:"Weisheit und großes Gut",text:"Wem Weisheit gegeben wird, dem wurde gewiss viel Gutes gegeben.",ref:"Koran 2:269",url:"https://quran.com/2/269"},{type:"quran",title:"Ruhe für die Herzen",text:"Im Gedenken Allahs finden die Herzen Ruhe.",ref:"Koran 13:28",url:"https://quran.com/13/28"},{type:"quran",title:"Das Tor der Hoffnung",text:"Verzweifelt nicht an Allahs Barmherzigkeit.",ref:"Koran 39:53",url:"https://quran.com/39/53"},{type:"hadith",title:"Taten richten sich nach Absichten",text:"Die Taten werden nach den Absichten beurteilt.",ref:"Sahih al-Bukhari 1",url:"https://sunnah.com/bukhari:1"},{type:"hadith",title:"Den Koran lernen",text:"Die Besten unter euch sind diejenigen, die den Koran lernen und ihn lehren.",ref:"Sahih al-Bukhari 5027",url:"https://sunnah.com/bukhari:5027"},{type:"hadith",title:"Sanftmut",text:"Allah ist sanft und liebt die Sanftmut.",ref:"Sahih Muslim 2593",url:"https://sunnah.com/muslim:2593"},{type:"topic",title:"Mit dem Gebet beginnen",text:"Warte nicht auf Vollkommenheit. Beginne mit dem aktuellen Pflichtgebet und baue Beständigkeit auf.",ref:"Grundlagen der Anbetung",url:"https://quran.com/2/238"},{type:"topic",title:"Mit Zweifeln umgehen",text:"Bestimme die Quelle des Zweifels, frage qualifizierte Gelehrte und prüfe die Belege sorgfältig.",ref:"Glaube und Vernunft",url:"https://quran.com/16/43"}]};
-
-Object.assign(CONTENT,window.HIKMET_EXTRA_CONTENT||{});
-const SUPPORTED_LANGS=["tr","en","de","es","fr","pt","ru","zh","id","ar","ur","hi"];
-function detectBrowserLanguage(){
- const candidates=[...(navigator.languages||[]),navigator.language].filter(Boolean);
- for(const locale of candidates){
-  const normalized=String(locale).toLowerCase().split("-")[0];
-  if(normalized==="iw") return "he";
-  if(SUPPORTED_LANGS.includes(normalized)) return normalized;
- }
- return "en";
-}
-let lang=localStorage.getItem("hikmet-lang")||detectBrowserLanguage(),selectedImage="",askHistory=[],barrierHistory=[],lastReflection=null;
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],tr=()=>I18N[lang];
-function applyI18n(){
- document.documentElement.lang=lang;
- document.documentElement.dir=['ar','ur'].includes(lang)?'rtl':'ltr';
- $("#languageSelect").value=lang;
- $$('[data-i18n]').forEach(e=>{const v=tr()[e.dataset.i18n];if(v!==undefined)e.innerHTML=v});
- $$('[data-i18n-placeholder]').forEach(e=>e.placeholder=tr()[e.dataset.i18nPlaceholder]);
- $$('.typing-label').forEach(e=>e.textContent=tr().chatTyping);
- Object.keys(chatRequests||{}).forEach(mode=>{
-  if(chatRequests[mode]?.busy){
-   const {button}=chatControls(mode);
-   button.setAttribute('aria-label',tr().chatCancel);
-   button.title=tr().chatCancel;
-  }
- });
- renderLearn(currentFilter);
- renderPrompts();
- renderDaily();
- renderSaved();renderLearnCategories();renderTasbih();renderHistory();setupSettings();renderDuas();renderNames();renderFavorites();
- updateTheme();
-}
-function navigate(page){$$('.page').forEach(p=>p.classList.remove('active'));const target=$(`#${page}Page`);if(!target)return;target.classList.add('active');$$('.bottom-nav button').forEach(b=>b.classList.toggle('active',b.dataset.nav===page));if(page==='saved')renderSaved();scrollTo({top:0,behavior:'smooth'})}
-$$('[data-nav]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.nav)));
-$('#languageSelect').onchange=e=>{lang=e.target.value;localStorage.setItem('hikmet-lang',lang);applyI18n()};
-function updateTheme(){const dark=document.documentElement.dataset.theme==='dark';$('#themeColorMeta').content=dark?'#0f120f':'#f4f1e9'}
-$('#themeToggle').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;localStorage.setItem('hikmet-theme',n);updateTheme()};
-let currentFilter='all';
-function renderLearn(filter='all'){currentFilter=filter;const grid=$('#learnGrid');if(!grid)return;const items=(CONTENT[lang]||CONTENT.tr).filter(x=>filter==='all'||x.type===filter);grid.innerHTML=items.length?'':'<div class="learn-empty">No content</div>';items.forEach(x=>{const c=document.createElement('article');c.className='learn-card';c.innerHTML=`<span class="type">${escapeHtml(x.type)}</span><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.text)}</p><p><b>${escapeHtml(x.ref)}</b></p><a href="${x.url}" target="_blank" rel="noopener noreferrer">${tr().source} →</a>`;grid.append(c)})}
-$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');renderLearn(t.dataset.filter)});
-function renderPrompts(){$('#askPrompts').innerHTML=tr().askPrompts.map(x=>`<button class="chip">${escapeHtml(x)}</button>`).join('');$('#barrierPrompts').innerHTML=tr().barrierPrompts.map(x=>`<button class="chip">${escapeHtml(x)}</button>`).join('');$('#askPrompts').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#askInput').value=b.textContent;$('#askInput').focus()});$('#barrierPrompts').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#barrierInput').value=b.textContent;$('#barrierInput').focus()})}
-function renderDaily(){const list=CONTENT[lang]||CONTENT.tr,day=Math.floor(Date.now()/86400000);const verses=list.filter(x=>x.type==='quran'),hadiths=list.filter(x=>x.type==='hadith'),v=verses[day%verses.length],h=hadiths[day%hadiths.length];$('#dailyVerseText').textContent=v.text;$('#dailyVerseRef').textContent=v.ref;$('#dailyHadithText').textContent=h.text;$('#dailyHadithRef').textContent=h.ref;$('#dailyVerseCard').dataset.item=JSON.stringify({...v,kind:'verse'});$('#dailyHadithCard').dataset.item=JSON.stringify({...h,kind:'hadith'})}
-$$('[data-save]').forEach(b=>b.onclick=()=>{const card=b.closest('.daily-card'),item=JSON.parse(card.dataset.item);saveItem(item);b.textContent=tr().saved});
-function getSaved(){try{return JSON.parse(localStorage.getItem('hikmet-saved')||'[]')}catch{return[]}}
-function saveItem(item){const saved=getSaved();saved.unshift({...item,id:Date.now()});localStorage.setItem('hikmet-saved',JSON.stringify(saved.slice(0,100)));renderSaved()}
-function renderSaved(){const box=$('#savedList');if(!box)return;const saved=getSaved();if(!saved.length){box.innerHTML=`<div class="learn-empty">${tr().noSaved}</div>`;return}box.innerHTML=saved.map(x=>`<article class="saved-item"><small>${escapeHtml(x.kind||x.type||'')}</small><h3>${escapeHtml(x.title||x.ref||'Hikmet')}</h3><p>${escapeHtml(x.text||x.reflection||'')}</p><footer><span>${escapeHtml(x.ref||'')}</span><button class="delete-save" data-id="${x.id}">${tr().delete}</button></footer></article>`).join('');box.querySelectorAll('.delete-save').forEach(b=>b.onclick=()=>{localStorage.setItem('hikmet-saved',JSON.stringify(saved.filter(x=>String(x.id)!==b.dataset.id)));renderSaved()})}
-$('#cameraBtn').onclick=()=>$('#cameraInput').click();$('#galleryBtn').onclick=()=>$('#galleryInput').click();$('#changeImageBtn').onclick=()=>$('#galleryInput').click();$('#cameraInput').onchange=e=>handleImage(e.target.files[0]);$('#galleryInput').onchange=e=>handleImage(e.target.files[0]);
-async function handleImage(file){if(!file||!file.type.startsWith('image/'))return;selectedImage=await compress(file);$('#previewImage').src=selectedImage;$('#reflectPicker').classList.add('hidden');$('#reflectPreview').classList.remove('hidden')}
-function compress(file){return new Promise((resolve,reject)=>{const u=URL.createObjectURL(file),im=new Image;im.onload=()=>{const s=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);resolve(c.toDataURL('image/jpeg',.84))};im.onerror=reject;im.src=u})}
-$('#analyzeBtn').onclick=async()=>{$('#reflectPreview').classList.add('hidden');$('#reflectLoading').classList.remove('hidden');try{const r=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:selectedImage,language:lang})}),d=await safeJson(r);if(!r.ok)throw Error(d.error||'Analysis failed');lastReflection=d;$('#resultImage').src=selectedImage;$('#resultTitle').textContent=d.title||'';$('#observationText').textContent=d.observation||'';$('#scienceText').textContent=d.science||'';$('#reflectionText').textContent=d.reflection||'';$('#questionText').textContent=d.question||'';const qc=$('#quranResultCard'),has=d.quran_text&&d.quran_reference;qc.classList.toggle('hidden',!has);if(has){$('#quranText').textContent=d.quran_text;$('#quranRef').textContent=d.quran_reference}$('#reflectResult').classList.remove('hidden')}catch(e){alert(e.message);$('#reflectPreview').classList.remove('hidden')}finally{$('#reflectLoading').classList.add('hidden')}};
-$('#newReflectBtn').onclick=()=>{selectedImage='';lastReflection=null;$('#reflectResult').classList.add('hidden');$('#reflectPicker').classList.remove('hidden')};
-$('#saveReflectBtn').onclick=()=>{if(!lastReflection)return;saveItem({kind:'reflection',title:lastReflection.title,text:lastReflection.reflection,ref:lastReflection.quran_reference||'',reflection:lastReflection.reflection});$('#saveReflectBtn').textContent=tr().saved};
-$('#shareReflectBtn').onclick=async()=>{if(!lastReflection)return;const text=`${lastReflection.title}\n\n${lastReflection.reflection}\n\n${lastReflection.question}\n\nHikmet — https://www.hikmet.app`;if(navigator.share){await navigator.share({title:'Hikmet',text,url:'https://www.hikmet.app'})}else{await navigator.clipboard.writeText(text);alert(tr().shareFallback)}};
-const chatRequests={
- ask:{busy:false,controller:null,loading:null},
- barrier:{busy:false,controller:null,loading:null}
+const TRANSLATIONS={
+tr:{eyebrow:"Yargısız ve samimi bir konuşma",headline:"Seni Rahmân’a yaklaşmaktan alıkoyan ne?",intro:"Bir şüphe, yaşadığın bir kırgınlık, günahların, ibadete başlamakta zorlanman veya anlamlandıramadığın herhangi bir şey olabilir. Olduğu gibi yaz.",placeholder:"İçinden geçeni yaz…",trustNote:"Amaç seni baskılamak değil; anlamak, yanlış bilgiyi ayırmak ve hakikati güzel bir üslupla konuşmak.",newChat:"Yeni konuşma",disclaimer:"Hikmet bir eğitim ve düşünme aracıdır; kişisel fetva veya uzman desteğinin yerine geçmez.",typing:"Hikmet yazıyor",cancel:"Cevabı durdur",cancelled:"İstek iptal edildi.",send:"Gönder",error:"Şu anda cevap verilemedi. Lütfen tekrar dene.",welcome:"Seni dinliyorum. Bunu hissetmene veya düşünmene sebep olan şeyi biraz anlatır mısın?",prompts:["Çok günah işledim","Müslümanlardan dolayı soğudum","Allah neden kötülüğe izin veriyor?","Namaza başlayamıyorum","İslam’ın doğru olduğundan emin değilim"]},
+en:{eyebrow:"An honest conversation without judgment",headline:"What is keeping you from drawing closer to the Most Merciful?",intro:"It may be a doubt, a painful experience, your sins, difficulty beginning worship, or something you cannot make sense of. Write it as it is.",placeholder:"Write what is on your heart…",trustNote:"The aim is not to pressure you, but to understand, separate misinformation, and discuss truth with wisdom.",newChat:"New conversation",disclaimer:"Hikmet is an educational reflection tool and does not replace a qualified scholar or professional support.",typing:"Hikmet is typing",cancel:"Stop response",cancelled:"Request cancelled.",send:"Send",error:"A response could not be generated right now. Please try again.",welcome:"I am listening. Could you tell me a little about what led you to feel or think this way?",prompts:["I have committed too many sins","Muslims pushed me away","Why does Allah allow evil?","I cannot begin praying","I am not sure Islam is true"]},
+de:{eyebrow:"Ein ehrliches Gespräch ohne Verurteilung",headline:"Was hält dich davon ab, dem Allerbarmer näherzukommen?",intro:"Es kann ein Zweifel, eine verletzende Erfahrung, deine Sünden, Schwierigkeiten mit dem Gottesdienst oder etwas Unverständliches sein. Schreib es so, wie es ist.",placeholder:"Schreibe, was dich beschäftigt…",trustNote:"Das Ziel ist nicht, Druck auszuüben, sondern dich zu verstehen, Fehlinformationen zu klären und die Wahrheit weise zu besprechen.",newChat:"Neues Gespräch",disclaimer:"Hikmet ist ein Bildungs- und Reflexionswerkzeug und ersetzt weder qualifizierte Gelehrte noch professionelle Hilfe.",typing:"Hikmet schreibt",cancel:"Antwort stoppen",cancelled:"Anfrage abgebrochen.",send:"Senden",error:"Zurzeit konnte keine Antwort erstellt werden. Bitte versuche es erneut.",welcome:"Ich höre dir zu. Kannst du etwas darüber erzählen, was dich zu diesem Gefühl oder Gedanken gebracht hat?",prompts:["Ich habe zu viel gesündigt","Muslime haben mich abgestoßen","Warum lässt Allah Böses zu?","Ich kann nicht mit dem Gebet beginnen","Ich bin nicht sicher, ob der Islam wahr ist"]},
+es:{headline:"¿Qué te impide acercarte al Misericordioso?",intro:"Puede ser una duda, una experiencia dolorosa, tus pecados o una dificultad para comenzar a adorar. Escríbelo tal como es.",placeholder:"Escribe lo que llevas dentro…",newChat:"Nueva conversación",typing:"Hikmet está escribiendo",cancel:"Detener respuesta",cancelled:"Solicitud cancelada.",send:"Enviar",error:"No se pudo generar una respuesta. Inténtalo de nuevo.",eyebrow:"Una conversación honesta y sin juicios",trustNote:"El objetivo no es presionarte, sino comprenderte y hablar de la verdad con sabiduría.",disclaimer:"Hikmet es una herramienta educativa y no sustituye a un erudito cualificado ni al apoyo profesional.",welcome:"Te escucho. ¿Puedes contarme qué te llevó a sentir o pensar esto?",prompts:["He cometido demasiados pecados","Los musulmanes me alejaron","¿Por qué Allah permite el mal?","No logro empezar a rezar","No sé si el Islam es verdadero"]},
+fr:{headline:"Qu’est-ce qui t’empêche de te rapprocher du Tout Miséricordieux ?",intro:"Cela peut être un doute, une expérience douloureuse, tes péchés ou une difficulté à commencer l’adoration. Écris-le tel quel.",placeholder:"Écris ce que tu portes en toi…",newChat:"Nouvelle conversation",typing:"Hikmet écrit",cancel:"Arrêter la réponse",cancelled:"Demande annulée.",send:"Envoyer",error:"Impossible de générer une réponse. Réessaie.",eyebrow:"Une conversation honnête et sans jugement",trustNote:"Le but n’est pas de te faire pression, mais de te comprendre et de parler de la vérité avec sagesse.",disclaimer:"Hikmet est un outil éducatif et ne remplace ni un savant qualifié ni un soutien professionnel.",welcome:"Je t’écoute. Peux-tu raconter ce qui t’a conduit à ressentir ou penser cela ?",prompts:["J’ai trop péché","Des musulmans m’ont éloigné","Pourquoi Allah permet-Il le mal ?","Je n’arrive pas à commencer la prière","Je ne sais pas si l’Islam est vrai"]},
+pt:{headline:"O que impede você de se aproximar do Misericordioso?",intro:"Pode ser uma dúvida, uma experiência dolorosa, seus pecados ou dificuldade para começar a adorar. Escreva como realmente é.",placeholder:"Escreva o que está em seu coração…",newChat:"Nova conversa",typing:"Hikmet está digitando",cancel:"Parar resposta",cancelled:"Pedido cancelado.",send:"Enviar",error:"Não foi possível gerar uma resposta. Tente novamente.",eyebrow:"Uma conversa honesta e sem julgamento",trustNote:"O objetivo não é pressionar, mas compreender e conversar sobre a verdade com sabedoria.",disclaimer:"Hikmet é uma ferramenta educativa e não substitui um estudioso qualificado ou apoio profissional.",welcome:"Estou ouvindo. Pode contar o que levou você a sentir ou pensar assim?",prompts:["Cometi pecados demais","Muçulmanos me afastaram","Por que Allah permite o mal?","Não consigo começar a orar","Não sei se o Islã é verdadeiro"]},
+ru:{headline:"Что мешает тебе приблизиться к Милостивому?",intro:"Это может быть сомнение, болезненный опыт, грехи или трудность начать поклонение. Напиши всё как есть.",placeholder:"Напиши, что у тебя на сердце…",newChat:"Новый разговор",typing:"Hikmet печатает",cancel:"Остановить ответ",cancelled:"Запрос отменён.",send:"Отправить",error:"Не удалось получить ответ. Попробуй снова.",eyebrow:"Честный разговор без осуждения",trustNote:"Цель — не давить, а понять тебя и мудро поговорить об истине.",disclaimer:"Hikmet — образовательный инструмент и не заменяет квалифицированного учёного или профессиональную помощь.",welcome:"Я слушаю. Расскажешь, что привело тебя к этому чувству или мысли?",prompts:["Я слишком много грешил","Мусульмане оттолкнули меня","Почему Аллах допускает зло?","Я не могу начать намаз","Я не уверен, что Ислам истинен"]},
+zh:{headline:"是什么阻碍你亲近至仁主？",intro:"它可能是疑问、受伤的经历、罪过，或难以开始功修。请如实写下。",placeholder:"写下你心里的话…",newChat:"新对话",typing:"Hikmet 正在输入",cancel:"停止回答",cancelled:"请求已取消。",send:"发送",error:"暂时无法生成回答，请重试。",eyebrow:"坦诚且不评判的对话",trustNote:"目的不是施压，而是理解你，并以智慧讨论真理。",disclaimer:"Hikmet 是教育与思考工具，不能替代合格学者或专业支持。",welcome:"我在听。你愿意谈谈是什么让你产生这种感受或想法吗？",prompts:["我犯了太多罪","穆斯林让我远离了伊斯兰","为什么真主允许恶存在？","我无法开始礼拜","我不确定伊斯兰是否真实"]},
+id:{headline:"Apa yang menghalangimu untuk mendekat kepada Yang Maha Pengasih?",intro:"Mungkin keraguan, pengalaman yang menyakitkan, dosa, atau kesulitan memulai ibadah. Tuliskan apa adanya.",placeholder:"Tuliskan apa yang ada di hatimu…",newChat:"Percakapan baru",typing:"Hikmet sedang mengetik",cancel:"Hentikan jawaban",cancelled:"Permintaan dibatalkan.",send:"Kirim",error:"Jawaban belum dapat dibuat. Silakan coba lagi.",eyebrow:"Percakapan jujur tanpa menghakimi",trustNote:"Tujuannya bukan menekan, tetapi memahami dan membicarakan kebenaran dengan hikmah.",disclaimer:"Hikmet adalah alat edukasi dan tidak menggantikan ulama yang kompeten atau bantuan profesional.",welcome:"Aku mendengarkan. Bisakah kamu menceritakan apa yang membuatmu merasa atau berpikir seperti ini?",prompts:["Dosaku terlalu banyak","Perilaku Muslim menjauhkan saya","Mengapa Allah membiarkan kejahatan?","Saya sulit mulai salat","Saya tidak yakin Islam benar"]},
+ar:{headline:"ما الذي يمنعك من الاقتراب من الرحمن؟",intro:"قد يكون شبهة أو تجربة مؤلمة أو ذنوبًا أو صعوبة في بدء العبادة. اكتب ما في داخلك كما هو.",placeholder:"اكتب ما في قلبك…",newChat:"محادثة جديدة",typing:"حكمة يكتب",cancel:"إيقاف الإجابة",cancelled:"تم إلغاء الطلب.",send:"إرسال",error:"تعذر إنشاء إجابة الآن. حاول مرة أخرى.",eyebrow:"حوار صادق بلا حكم مسبق",trustNote:"الهدف ليس الضغط عليك، بل فهمك ومناقشة الحق بالحكمة.",disclaimer:"حكمة أداة تعليمية وتأملية ولا يغني عن عالم مؤهل أو دعم مهني.",welcome:"أنا أستمع إليك. هل يمكنك أن تخبرني ما الذي أوصلك إلى هذا الشعور أو التفكير؟",prompts:["ذنوبِي كثيرة جدًا","نفّرني بعض المسلمين","لماذا يسمح الله بوجود الشر؟","لا أستطيع البدء بالصلاة","لست متأكدًا من صحة الإسلام"]},
+ur:{headline:"آپ کو رحمٰن کے قریب آنے سے کیا روکتا ہے؟",intro:"یہ کوئی شبہ، تکلیف دہ تجربہ، گناہ یا عبادت شروع کرنے میں مشکل ہو سکتی ہے۔ جو دل میں ہے صاف لکھیں۔",placeholder:"دل کی بات لکھیں…",newChat:"نئی گفتگو",typing:"حکمت لکھ رہا ہے",cancel:"جواب روکیں",cancelled:"درخواست منسوخ کر دی گئی۔",send:"بھیجیں",error:"ابھی جواب تیار نہیں ہو سکا۔ دوبارہ کوشش کریں۔",eyebrow:"بغیر فیصلے کے ایک سچی گفتگو",trustNote:"مقصد دباؤ ڈالنا نہیں، بلکہ سمجھنا اور حکمت کے ساتھ حق پر گفتگو کرنا ہے۔",disclaimer:"حکمت ایک تعلیمی ذریعہ ہے اور کسی مستند عالم یا پیشہ ور مدد کا متبادل نہیں۔",welcome:"میں سن رہا ہوں۔ کیا آپ بتا سکتے ہیں کہ آپ اس احساس یا خیال تک کیسے پہنچے؟",prompts:["میرے گناہ بہت زیادہ ہیں","مسلمانوں نے مجھے دور کر دیا","اللہ برائی کی اجازت کیوں دیتا ہے؟","میں نماز شروع نہیں کر پا رہا","مجھے یقین نہیں کہ اسلام حق ہے"]},
+hi:{headline:"आपको रहमान के करीब आने से क्या रोकता है?",intro:"यह कोई संदेह, दुखद अनुभव, गुनाह या इबादत शुरू करने की कठिनाई हो सकती है। जैसा है वैसा लिखें।",placeholder:"अपने दिल की बात लिखें…",newChat:"नई बातचीत",typing:"Hikmet लिख रहा है",cancel:"उत्तर रोकें",cancelled:"अनुरोध रद्द किया गया।",send:"भेजें",error:"अभी उत्तर तैयार नहीं हो सका। फिर प्रयास करें।",eyebrow:"बिना निर्णय की ईमानदार बातचीत",trustNote:"उद्देश्य दबाव डालना नहीं, बल्कि समझना और हिकमत से सत्य पर बात करना है।",disclaimer:"Hikmet एक शैक्षिक साधन है और योग्य विद्वान या पेशेवर सहायता का विकल्प नहीं।",welcome:"मैं सुन रहा हूँ। क्या आप बता सकते हैं कि आपको यह महसूस या सोचने की वजह क्या बनी?",prompts:["मैंने बहुत गुनाह किए हैं","मुसलमानों ने मुझे दूर कर दिया","अल्लाह बुराई क्यों होने देता है?","मैं नमाज़ शुरू नहीं कर पा रहा","मुझे यकीन नहीं कि इस्लाम सत्य है"]}
 };
-function chatControls(mode){
- const form=mode==='ask'?$('#askForm'):$('#barrierForm');
- return {form,input:form.querySelector('textarea'),button:form.querySelector('.send-btn')};
+
+const SUPPORTED=Object.keys(TRANSLATIONS);
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+let language=localStorage.getItem("hikmet-language")||detectLanguage();
+let history=loadHistory();
+let activeController=null;
+let busy=false;
+
+function detectLanguage(){
+  const candidates=[...(navigator.languages||[]),navigator.language].filter(Boolean);
+  for(const locale of candidates){
+    const code=String(locale).toLowerCase().split("-")[0];
+    if(SUPPORTED.includes(code)) return code;
+  }
+  return "en";
 }
-function setChatBusy(mode,busy){
- const state=chatRequests[mode],{form,button}=chatControls(mode);
- state.busy=busy;
- form.classList.toggle('is-busy',busy);
- button.classList.toggle('cancel-btn',busy);
- button.type=busy?'button':'submit';
- button.textContent=busy?'■':'↑';
- button.setAttribute('aria-label',busy?tr().chatCancel:tr().send);
- button.title=button.getAttribute('aria-label');
+function t(){return TRANSLATIONS[language]||TRANSLATIONS.en}
+function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function applyLanguage(){
+  document.documentElement.lang=language;
+  document.documentElement.dir=["ar","ur"].includes(language)?"rtl":"ltr";
+  $("#languageSelect").value=language;
+  $$("[data-i18n]").forEach(el=>{const value=t()[el.dataset.i18n];if(value!==undefined)el.textContent=value});
+  $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t()[el.dataset.i18nPlaceholder]);
+  $$(".send-button").forEach(el=>el.setAttribute("aria-label",busy?t().cancel:t().send));
+  renderChips();
+  const typing=$("#typingLabel");if(typing)typing.textContent=t().typing;
 }
-function cancelChat(mode){
- const state=chatRequests[mode];
- if(!state.busy||!state.controller)return;
- state.controller.abort();
+function renderChips(){
+  $("#promptChips").innerHTML=t().prompts.map(p=>`<button class="prompt-chip" type="button">${escapeHtml(p)}</button>`).join("");
+  $("#promptChips").querySelectorAll("button").forEach(btn=>btn.onclick=()=>{$("#welcomeInput").value=btn.textContent;$("#welcomeInput").focus()});
 }
-async function sendChat(mode,inputEl,messagesEl,history){
- const state=chatRequests[mode];
- if(state.busy)return;
- const text=inputEl.value.trim();
- if(!text)return;
- inputEl.value='';
- addMsg(messagesEl,text,'user');
- history.push({role:'user',text});
- const loading=addTypingMsg(messagesEl);
- const controller=new AbortController();
- const timer=setTimeout(()=>controller.abort('timeout'),45000);
- state.controller=controller;
- state.loading=loading;
- setChatBusy(mode,true);
- try{
-  const r=await fetch('/api/chat',{
-   method:'POST',
-   headers:{'Content-Type':'application/json'},
-   signal:controller.signal,
-   body:JSON.stringify({mode,language:lang,message:text,history:history.slice(-12)})
-  });
-  const d=await safeJson(r);
-  if(!r.ok)throw Error(d.error||'Request failed');
-  const reply=String(d.reply||'').trim();
-  if(!reply)throw Error(tr().chatEmpty);
-  loading.remove();
-  addMsg(messagesEl,reply,'assistant');
-  history.push({role:'assistant',text:reply});saveChatState();addHistoryItem({type:'chat',mode,title:text.slice(0,80),content:reply.slice(0,500),language:lang});saveChatState();addHistoryItem({type:'chat',mode,title:text.slice(0,80),content:reply.slice(0,500),language:lang});
- }catch(e){
-  loading.classList.remove('typing-message','loading-msg');
-  loading.classList.add(e.name==='AbortError'?'chat-cancelled':'chat-error');
-  loading.textContent=e.name==='AbortError'
-   ? (controller.signal.reason==='timeout'?tr().chatTimeout:tr().chatCancelled)
-   : e.message;
- }finally{
-  clearTimeout(timer);
-  state.controller=null;
-  state.loading=null;
-  setChatBusy(mode,false);
-  inputEl.focus();
- }
+function loadHistory(){try{return JSON.parse(localStorage.getItem("hikmet-conversation")||"[]")}catch{return []}}
+function saveHistory(){localStorage.setItem("hikmet-conversation",JSON.stringify(history.slice(-30)))}
+function newConversation(){
+  if(activeController)activeController.abort();
+  busy=false;activeController=null;history=[];saveHistory();
+  $("#messages").innerHTML="";
+  $("#chatView").classList.add("hidden");
+  $("#welcomeView").classList.remove("hidden");
+  $("#welcomeInput").value="";
+  updateSendButton();
 }
-function addTypingMsg(box){
- const d=document.createElement('div');
- d.className='message assistant loading-msg typing-message';
- d.innerHTML=`<span class="typing-label">${escapeHtml(tr().chatTyping)}</span><span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>`;
- box.append(d);
- box.scrollTop=box.scrollHeight;
- return d;
+function openChat(){
+  $("#welcomeView").classList.add("hidden");
+  $("#chatView").classList.remove("hidden");
+  renderHistory();
+  setTimeout(()=>$("#chatInput").focus(),100);
 }
-function formatAssistantText(text){
- const safe=escapeHtml(String(text||""));
- const lines=safe.split(/\n+/);
- let html="",inList=false;
- for(const line of lines){
-  const l=line.trim();
-  if(!l){if(inList){html+="</ul>";inList=false}continue}
-  if(/^[-•]\s+/.test(l)){if(!inList){html+="<ul>";inList=true}html+=`<li>${l.replace(/^[-•]\s+/,"")}</li>`;continue}
-  if(inList){html+="</ul>";inList=false}
-  if(/^&gt;\s*/.test(l))html+=`<blockquote>${l.replace(/^&gt;\s*/,"")}</blockquote>`;
-  else html+=`<p>${l.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>")}</p>`;
- }
- if(inList)html+="</ul>";
- return html;
+function renderHistory(){
+  const box=$("#messages");box.innerHTML="";
+  history.forEach(m=>addMessage(m.text,m.role,false));
+  scrollBottom();
 }
-function addMsg(box,text,type){const d=document.createElement('div');d.className='message '+type+(type==='assistant'?' formatted-message':'');if(type==='assistant')d.innerHTML=formatAssistantText(text);else d.textContent=text;box.append(d);box.scrollTop=box.scrollHeight;return d}
-$('#askForm').onsubmit=e=>{e.preventDefault();if(!chatRequests.ask.busy)sendChat('ask',$('#askInput'),$('#askMessages'),askHistory)};
-$('#barrierForm').onsubmit=e=>{e.preventDefault();if(!chatRequests.barrier.busy)sendChat('barrier',$('#barrierInput'),$('#barrierMessages'),barrierHistory)};
-$('#askForm .send-btn').onclick=e=>{if(chatRequests.ask.busy){e.preventDefault();cancelChat('ask')}};
-$('#barrierForm .send-btn').onclick=e=>{if(chatRequests.barrier.busy){e.preventDefault();cancelChat('barrier')}};
-$('#loadPrayerBtn').onclick=()=>{if(!navigator.geolocation)return $('#prayerContent').textContent=tr().prayerError;navigator.geolocation.getCurrentPosition(loadPrayer,()=>$('#prayerContent').textContent=tr().prayerError,{enableHighAccuracy:false,timeout:10000})};
-async function loadPrayer(pos){try{const {latitude,longitude}=pos.coords,r=await fetch(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=13`),d=await r.json(),t=d.data.timings,names=[['Fajr','Fajr'],['Sunrise','Sunrise'],['Dhuhr','Dhuhr'],['Asr','Asr'],['Maghrib','Maghrib'],['Isha','Isha']];$('#prayerContent').innerHTML=`<div class="prayer-times">${names.map(([k,n])=>`<div class="prayer-time"><small>${n}</small><b>${t[k]}</b></div>`).join('')}</div><p class="muted">${tr().approx}</p>`}catch{$('#prayerContent').textContent=tr().prayerError}}
-function escapeHtml(v=''){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-async function safeJson(r){const text=await r.text();try{return JSON.parse(text)}catch{return {error:text||`HTTP ${r.status}`}}}
-applyI18n();navigate('home');
+function formatAssistant(text){
+  const safe=escapeHtml(text);
+  const lines=safe.split(/\n+/);let html="",list=false;
+  for(const line of lines){
+    const l=line.trim();if(!l){if(list){html+="</ul>";list=false}continue}
+    if(/^[-•]\s+/.test(l)){if(!list){html+="<ul>";list=true}html+=`<li>${l.replace(/^[-•]\s+/,"")}</li>`;continue}
+    if(list){html+="</ul>";list=false}
+    if(/^&gt;\s*/.test(l))html+=`<blockquote>${l.replace(/^&gt;\s*/,"")}</blockquote>`;
+    else html+=`<p>${l.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>")}</p>`;
+  }
+  if(list)html+="</ul>";return html;
+}
+function addMessage(text,role,animate=true){
+  const div=document.createElement("div");div.className=`message ${role}`;
+  if(!animate)div.style.animation="none";
+  if(role==="assistant")div.innerHTML=formatAssistant(text);else div.textContent=text;
+  $("#messages").append(div);scrollBottom();return div;
+}
+function addTyping(){
+  const div=document.createElement("div");div.id="typingMessage";div.className="message assistant typing";
+  div.innerHTML=`<span id="typingLabel">${escapeHtml(t().typing)}</span><span class="dots"><i></i><i></i><i></i></span>`;
+  $("#messages").append(div);scrollBottom();return div;
+}
+function scrollBottom(){requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"}))}
+function autoResize(el){el.style.height="auto";el.style.height=Math.min(el.scrollHeight,180)+"px"}
+function updateSendButton(){
+  const btn=$("#sendButton");
+  btn.classList.toggle("stop",busy);btn.textContent=busy?"■":"↑";btn.type=busy?"button":"submit";
+  btn.setAttribute("aria-label",busy?t().cancel:t().send);
+}
+async function sendMessage(text){
+  text=String(text||"").trim();if(!text||busy)return;
+  openChat();addMessage(text,"user");history.push({role:"user",text});saveHistory();
+  $("#chatInput").value="";autoResize($("#chatInput"));
+  const typing=addTyping();busy=true;updateSendButton();
+  const controller=new AbortController();activeController=controller;
+  const timer=setTimeout(()=>controller.abort("timeout"),60000);
+  try{
+    const response=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},signal:controller.signal,body:JSON.stringify({language,message:text,history:history.slice(-16)})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||t().error);
+    const reply=String(data.reply||"").trim();if(!reply)throw new Error(t().error);
+    typing.remove();addMessage(reply,"assistant");history.push({role:"assistant",text:reply});saveHistory();
+  }catch(error){
+    typing.classList.remove("typing");
+    typing.classList.add(error.name==="AbortError"?"cancelled":"error");
+    typing.textContent=error.name==="AbortError"?t().cancelled:(error.message||t().error);
+  }finally{
+    clearTimeout(timer);activeController=null;busy=false;updateSendButton();$("#chatInput").focus();
+  }
+}
+$("#welcomeForm").onsubmit=e=>{e.preventDefault();sendMessage($("#welcomeInput").value)};
+$("#chatForm").onsubmit=e=>{e.preventDefault();if(!busy)sendMessage($("#chatInput").value)};
+$("#sendButton").onclick=e=>{if(busy){e.preventDefault();activeController?.abort("user")}};
+$("#chatInput").addEventListener("input",e=>autoResize(e.target));
+$("#welcomeInput").addEventListener("input",e=>autoResize(e.target));
+$("#newChatButton").onclick=newConversation;$("#homeButton").onclick=newConversation;
+$("#languageSelect").onchange=e=>{language=e.target.value;localStorage.setItem("hikmet-language",language);applyLanguage()};
+$("#themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("hikmet-theme",next);$("#themeColorMeta").content=next==="dark"?"#0f120f":"#f4f1e9"};
+
+applyLanguage();
+if(history.length)openChat();

@@ -1,10 +1,10 @@
 {
-  "name": "Hikmet Super App",
+  "name": "Hikmet",
   "short_name": "Hikmet",
-  "start_url": "/?source=pwa",
+  "description": "İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f4f1e9",
-  "theme_color": "#244b3b",
-  "description": "Tefekkür et, öğren, sor ve İslam'ı keşfet.",
-  "scope": "/"
+  "theme_color": "#244b3b"
 }

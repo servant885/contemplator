@@ -1,23 +1,31 @@
-# Hikmet v11 Super App
+# Hikmet — Tek Özellik
 
-Tek paket içinde:
-- Tefekkür ve görüntü analizi
-- Dinî soru-cevap ve İslam'ı keşfet sohbetleri
-- Çoklu dil ve otomatik tarayıcı dili
-- Öğrenme kütüphanesi
-- Namaz vakitleri, kıble ve tesbih
-- Dua kütüphanesi
-- Esmâü'l-Hüsnâ
-- Zekât hesaplayıcı
-- Ramazan hedef planlayıcısı
-- Yakındaki camiler
-- Sesli giriş ve cevap dinleme
-- Geçmiş, favoriler ve paylaşma
-- Karanlık mod, yazı boyutu ve gizlilik ekranı
-- PWA kurulumu ve çevrimdışı uygulama kabuğu
-- Bildirim izni
+Hikmet artık tek bir şeyi mümkün olduğunca iyi yapar:
+
+> Kullanıcının Allah'a yaklaşmasının önündeki engeli yargılamadan dinler ve İslami açıdan hikmetli, merhametli, güvenilir bir konuşma yürütür.
+
+## Kurulum
+
+Dosyaları GitHub repository köküne yükleyin.
 
 Vercel ortam değişkeni:
-GEMINI_API_KEY
 
-Not: Zekât hesabı genel tahmindir. Namaz vakitleri yaklaşık olabilir. Dinî ve kişisel fetva gerektiren meselelerde ehil bir âlime danışılmalıdır.
+```text
+GEMINI_API_KEY
+```
+
+## Özellikler
+
+- Tek ve sade sohbet ekranı
+- Tarayıcı dilini otomatik algılama
+- 12 dil
+- Konuşma geçmişini cihazda tutma
+- Aynı anda tek AI isteği
+- Cevabı durdurma
+- “Hikmet yazıyor” göstergesi
+- Karanlık mod
+- Mobil uyum
+- İç komut sızıntısına karşı çıktı kontrolü
+- Kişisel fetva, kriz ve hassas konular için koruyucu sistem talimatları
+
+Model: `gemini-3.5-flash`
