@@ -1,16 +1,23 @@
-# Hikmet v1.1
+# Hikmet v11 Super App
 
-## Kurulum
-Repository kökündeki dosyaların tamamını bu paketle değiştirin. `GEMINI_API_KEY` Vercel Environment Variables içinde kalmalıdır.
+Tek paket içinde:
+- Tefekkür ve görüntü analizi
+- Dinî soru-cevap ve İslam'ı keşfet sohbetleri
+- Çoklu dil ve otomatik tarayıcı dili
+- Öğrenme kütüphanesi
+- Namaz vakitleri, kıble ve tesbih
+- Dua kütüphanesi
+- Esmâü'l-Hüsnâ
+- Zekât hesaplayıcı
+- Ramazan hedef planlayıcısı
+- Yakındaki camiler
+- Sesli giriş ve cevap dinleme
+- Geçmiş, favoriler ve paylaşma
+- Karanlık mod, yazı boyutu ve gizlilik ekranı
+- PWA kurulumu ve çevrimdışı uygulama kabuğu
+- Bildirim izni
 
-## Düzeltmeler
-- WhatsApp/Open Graph için gerçek 1200×630 PNG
-- Çalışan Öğren kartları ve kaynak bağlantıları
-- Alt menüde İslam'ı Keşfet
-- Kararlı Gemini 2.5 Flash sohbet ve görsel analizi
-- Boş/yarım mesaj, zaman aşımı ve iç komut sızıntısı koruması
-- Günün ayeti ve hadisi
-- Kayıtlar/favoriler
-- Tefekkür sonucunu kaydetme ve paylaşma
+Vercel ortam değişkeni:
+GEMINI_API_KEY
 
-Not: Dinî cevaplar eğitim amaçlıdır; kişisel fetva gereken meselelerde ehil bir âlime danışılmalıdır.
+Not: Zekât hesabı genel tahmindir. Namaz vakitleri yaklaşık olabilir. Dinî ve kişisel fetva gerektiren meselelerde ehil bir âlime danışılmalıdır.

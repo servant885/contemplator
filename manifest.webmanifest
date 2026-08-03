@@ -1,9 +1,10 @@
 {
-  "name": "Hikmet",
+  "name": "Hikmet Super App",
   "short_name": "Hikmet",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#f4f1e9",
   "theme_color": "#244b3b",
-  "description": "Tefekkür et, öğren, sor ve İslam'ı keşfet."
+  "description": "Tefekkür et, öğren, sor ve İslam'ı keşfet.",
+  "scope": "/"
 }

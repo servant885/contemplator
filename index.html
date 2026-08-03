@@ -40,7 +40,7 @@
         </span>
         <span>Hikmet</span>
       </button>
-      <div class="top-actions">
+      <div class="top-actions"><button id="installBtn" class="circle-btn hidden" aria-label="Install">＋</button>
         <button id="savedButton" class="circle-btn" data-nav="saved" aria-label="Kayıtlar" title="Kayıtlar">♡</button>
         <button id="themeToggle" class="circle-btn" aria-label="Tema">
           <svg class="moon" viewBox="0 0 24 24"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
@@ -103,7 +103,49 @@
           </article>
         </section>
 
-        <section class="prayer-widget">
+
+        <section class="v2-tools">
+          <div class="section-title-row">
+            <div>
+              <span class="kicker" data-i18n="toolsKicker">Günlük araçlar</span>
+              <h2 data-i18n="toolsTitle">İbadet ve hatırlama</h2>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <button class="mini-card" data-nav="tasbih">
+              <span>○</span><strong data-i18n="tasbihTitle">Tesbih</strong><small data-i18n="tasbihDesc">Zikrini sade biçimde takip et.</small>
+            </button>
+            <button class="mini-card" data-nav="qibla">
+              <span>⌖</span><strong data-i18n="qiblaTitle">Kıble</strong><small data-i18n="qiblaDesc">Konumuna göre kıble yönünü gör.</small>
+            </button>
+            <button class="mini-card" data-nav="history">
+              <span>↺</span><strong data-i18n="historyTitle">Geçmiş</strong><small data-i18n="historyDesc">Önceki sohbet ve tefekkürlerini aç.</small>
+            </button>
+            <button class="mini-card" data-nav="settings">
+              <span>⚙</span><strong data-i18n="settingsTitle">Ayarlar</strong><small data-i18n="settingsDesc">Dil, tema ve yazı boyutu.</small>
+            </button>
+          </div>
+        </section>
+
+        
+        <section class="super-section">
+          <div class="section-title-row">
+            <div>
+              <span class="kicker" data-i18n="superKicker">Hikmet v11</span>
+              <h2 data-i18n="superTitle">İslami yaşam araçları</h2>
+            </div>
+          </div>
+          <div class="super-grid">
+            <button class="super-card" data-nav="dua"><span>🤲</span><strong data-i18n="duaTitle">Dualar</strong><small data-i18n="duaDesc">Günlük ve sahih dua seçkisi.</small></button>
+            <button class="super-card" data-nav="names"><span>✦</span><strong data-i18n="namesTitle">Esmâü’l-Hüsnâ</strong><small data-i18n="namesDesc">Allah’ın güzel isimlerini öğren.</small></button>
+            <button class="super-card" data-nav="zakat"><span>◈</span><strong data-i18n="zakatTitle">Zekât</strong><small data-i18n="zakatDesc">Basit ve şeffaf hesaplayıcı.</small></button>
+            <button class="super-card" data-nav="ramadan"><span>☾</span><strong data-i18n="ramadanTitle">Ramazan</strong><small data-i18n="ramadanDesc">İbadet ve hedef planlayıcısı.</small></button>
+            <button class="super-card" data-nav="mosques"><span>⌂</span><strong data-i18n="mosquesTitle">Yakındaki Camiler</strong><small data-i18n="mosquesDesc">Haritada yakın camileri aç.</small></button>
+            <button class="super-card" data-nav="favorites"><span>☆</span><strong data-i18n="favoritesTitle">Favoriler</strong><small data-i18n="favoritesDesc">Kaydettiğin içeriklere dön.</small></button>
+          </div>
+        </section>
+
+<section class="prayer-widget">
           <div><span class="kicker" data-i18n="prayerKicker">Bugünün vakitleri</span><h2 data-i18n="prayerTitle">Namaz vakitleri</h2></div>
           <button id="loadPrayerBtn" class="outline-btn" data-i18n="useLocation">Konumumu kullan</button>
           <div id="prayerContent" class="prayer-content muted" data-i18n="prayerHint">Konum izni verirsen bugünün yaklaşık vakitlerini gösterebiliriz.</div>
@@ -152,6 +194,10 @@
       <section id="learnPage" class="page">
         <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="learnKicker">Güvenilir kaynaklarla</span><h1 data-i18n="learnPageTitle">Öğren</h1></div></div>
         <p class="lead" data-i18n="learnLead">Kur'an'dan ayetler, sahih hadisler ve temel konularda kısa, anlaşılır içerikler.</p>
+        <div class="learn-search-wrap">
+          <input id="learnSearch" class="learn-search" type="search" data-i18n-placeholder="learnSearchPlaceholder" placeholder="Ayet, hadis veya konu ara…">
+        </div>
+        <div class="learn-categories" id="learnCategories"></div>
         <div class="tabs"><button class="tab active" data-filter="all" data-i18n="all">Tümü</button><button class="tab" data-filter="quran" data-i18n="quran">Kur'an</button><button class="tab" data-filter="hadith" data-i18n="hadith">Hadis</button><button class="tab" data-filter="topic" data-i18n="topics">Konular</button></div>
         <div id="learnGrid" class="learn-grid"></div>
         <p class="source-note" data-i18n="sourceNote">Ayet ve hadis metinleri kaynak referanslarıyla sunulur. Ayrıntılı inceleme için kaynak bağlantısını aç.</p>
@@ -159,18 +205,20 @@
 
       <section id="askPage" class="page">
         <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="askKicker">Çekinmeden sor</span><h1 data-i18n="askPageTitle">Dinî Sorular</h1></div></div>
-        <p class="lead" data-i18n="askLead">İbadet, akaid, ahlak veya zihnini meşgul eden bir şüphe… Sorunu açıkça yaz.</p>
+        <p class="lead" data-i18n="askLead">İbadet, akaid, ahlak veya zihnini meşgul eden bir şüphe… Sorunu açıkça yaz.</p><button id="clearAskBtn" class="text-action" data-i18n="newConversation">Yeni konuşma</button>
         <div class="quick-prompts" id="askPrompts"></div>
         <div id="askMessages" class="chat-messages"><div class="message assistant" data-i18n="askWelcome">Selâmün aleyküm. Aklına takılan konuyu yazabilirsin. Kesin fetva gereken meselelerde ehil bir âlime danışmanı da hatırlatacağım.</div></div>
-        <form id="askForm" class="composer"><textarea id="askInput" rows="2" data-i18n-placeholder="askPlaceholder" placeholder="Sorunu yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
+        <form id="askForm" class="composer"><button class="voice-btn" type="button" data-voice-target="askInput" aria-label="Voice">🎙</button><textarea id="askInput" rows="2" data-i18n-placeholder="askPlaceholder" placeholder="Sorunu yaz…"></textarea><button class="send-btn" type="submit">↑</button></form><div class="chat-tools"><button id="speakAskBtn" class="text-action" data-i18n="readLastAnswer">Son cevabı dinle</button><button id="shareAskBtn" class="text-action" data-i18n="shareConversation">Konuşmayı paylaş</button><label class="setting-row"><span><strong data-i18n="notifications">Bildirimler</strong><small data-i18n="notificationsHint">Günlük hatırlatmalar için izin ver</small></span><button id="notificationBtn" class="outline-btn" data-i18n="enable">Etkinleştir</button></label>
+          <button class="setting-link" data-nav="privacy" data-i18n="privacyTitle">Gizlilik</button>
+        </div>
       </section>
 
       <section id="barrierPage" class="page">
         <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="barrierKicker">Açık ve yargısız bir konuşma</span><h1 data-i18n="barrierPageTitle">Seni ne engelliyor?</h1></div></div>
-        <div class="barrier-intro"><h2 data-i18n="barrierQuestion">Müslüman olmanla arandaki en büyük engel nedir?</h2><p data-i18n="barrierLead">Burada yargılanmadan konuşabilirsin. Amaç baskı kurmak değil; seni anlamak, yanlış bilgileri ayırmak ve sorularını dürüstçe ele almak.</p></div>
+        <button id="clearBarrierBtn" class="text-action" data-i18n="newConversation">Yeni konuşma</button><div class="barrier-intro"><h2 data-i18n="barrierQuestion">Müslüman olmanla arandaki en büyük engel nedir?</h2><p data-i18n="barrierLead">Burada yargılanmadan konuşabilirsin. Amaç baskı kurmak değil; seni anlamak, yanlış bilgileri ayırmak ve sorularını dürüstçe ele almak.</p></div>
         <div id="barrierPrompts" class="chip-list"></div>
         <div id="barrierMessages" class="chat-messages"><div class="message assistant" data-i18n="barrierWelcome">Seni dinlemeye hazırım. Yaşadığın bir olay, bilimsel bir soru, ahlaki bir kaygı veya başka bir sebep olabilir.</div></div>
-        <form id="barrierForm" class="composer"><textarea id="barrierInput" rows="2" data-i18n-placeholder="barrierPlaceholder" placeholder="Düşünceni açıkça yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
+        <form id="barrierForm" class="composer"><button class="voice-btn" type="button" data-voice-target="barrierInput" aria-label="Voice">🎙</button><textarea id="barrierInput" rows="2" data-i18n-placeholder="barrierPlaceholder" placeholder="Düşünceni açıkça yaz…"></textarea><button class="send-btn" type="submit">↑</button></form>
       </section>
 
       <section id="savedPage" class="page">
@@ -178,6 +226,121 @@
         <p class="lead" data-i18n="savedLead">Kaydettiğin ayet, hadis ve tefekkürler bu cihazda saklanır.</p>
         <div id="savedList" class="saved-list"></div>
       </section>
+
+      <section id="tasbihPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="tasbihKicker">Sade ve dikkat dağıtmayan</span><h1 data-i18n="tasbihTitle">Tesbih</h1></div></div>
+        <div class="tasbih-card">
+          <div class="tasbih-presets" id="tasbihPresets"></div>
+          <button id="tasbihCounter" class="tasbih-counter" type="button">
+            <small id="tasbihDhikr">Sübhânallah</small>
+            <strong id="tasbihCount">0</strong>
+            <span data-i18n="tapToCount">Saymak için dokun</span>
+          </button>
+          <div class="tasbih-progress"><span id="tasbihProgress"></span></div>
+          <div class="inline-actions">
+            <button id="tasbihMinus" class="outline-btn">−1</button>
+            <button id="tasbihReset" class="outline-btn" data-i18n="reset">Sıfırla</button>
+            <button id="tasbihGoal" class="outline-btn">33</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="qiblaPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="qiblaKicker">Konumuna göre</span><h1 data-i18n="qiblaTitle">Kıble</h1></div></div>
+        <p class="lead" data-i18n="qiblaLead">Konum izni verdiğinde Kâbe yönünü hesaplarız. Telefon pusulası destekleniyorsa ok hareket eder.</p>
+        <div class="qibla-card">
+          <div class="compass">
+            <span class="north">N</span>
+            <div id="qiblaNeedle" class="qibla-needle">▲</div>
+            <div class="kaaba">▣</div>
+          </div>
+          <h2 id="qiblaBearing">—°</h2>
+          <p id="qiblaStatus" class="muted" data-i18n="qiblaHint">Başlamak için konumunu kullan.</p>
+          <button id="loadQiblaBtn" class="primary-btn" data-i18n="useLocation">Konumumu kullan</button>
+        </div>
+      </section>
+
+      <section id="historyPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="historyKicker">Cihazında saklananlar</span><h1 data-i18n="historyTitle">Geçmiş</h1></div></div>
+        <div class="tabs">
+          <button class="tab active" data-history-filter="all" data-i18n="all">Tümü</button>
+          <button class="tab" data-history-filter="chat" data-i18n="conversations">Sohbetler</button>
+          <button class="tab" data-history-filter="reflection" data-i18n="reflections">Tefekkürler</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+        <button id="clearHistoryBtn" class="outline-btn full danger-btn" data-i18n="clearHistory">Geçmişi temizle</button>
+      </section>
+
+      <section id="settingsPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="settingsKicker">Kişiselleştir</span><h1 data-i18n="settingsTitle">Ayarlar</h1></div></div>
+        <div class="settings-list">
+          <label class="setting-row"><span><strong data-i18n="language">Dil</strong><small data-i18n="languageHint">Uygulama ve AI cevap dili</small></span><select id="settingsLanguage" class="lang-select"></select></label>
+          <label class="setting-row"><span><strong data-i18n="appearance">Görünüm</strong><small data-i18n="appearanceHint">Açık veya karanlık tema</small></span><select id="settingsTheme" class="lang-select"><option value="light" data-i18n="light">Açık</option><option value="dark" data-i18n="dark">Karanlık</option></select></label>
+          <label class="setting-row block"><span><strong data-i18n="fontSize">Yazı boyutu</strong><small data-i18n="fontSizeHint">Okuma rahatlığı için ayarla</small></span><input id="fontSizeRange" type="range" min="90" max="120" step="5"></label>
+          <label class="setting-row"><span><strong data-i18n="saveHistory">Geçmişi kaydet</strong><small data-i18n="saveHistoryHint">Sohbet ve tefekkürleri bu cihazda sakla</small></span><input id="historyToggle" type="checkbox" checked></label>
+        </div>
+      </section>
+
+
+      <section id="duaPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="duaKicker">Kur’an ve sahih sünnetten</span><h1 data-i18n="duaTitle">Dualar</h1></div></div>
+        <input id="duaSearch" class="learn-search" type="search" data-i18n-placeholder="duaSearchPlaceholder" placeholder="Dua ara…">
+        <div id="duaCategories" class="learn-categories"></div>
+        <div id="duaList" class="library-grid"></div>
+      </section>
+
+      <section id="namesPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="namesKicker">Tanı, anla, zikret</span><h1 data-i18n="namesTitle">Esmâü’l-Hüsnâ</h1></div></div>
+        <input id="namesSearch" class="learn-search" type="search" data-i18n-placeholder="namesSearchPlaceholder" placeholder="İsim veya anlam ara…">
+        <div id="namesGrid" class="names-grid"></div>
+      </section>
+
+      <section id="zakatPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="zakatKicker">Yaklaşık hesaplama</span><h1 data-i18n="zakatTitle">Zekât</h1></div></div>
+        <p class="lead" data-i18n="zakatLead">Nakit, altın, ticaret malları ve borçlarını gir. Sonuç genel bir tahmindir; özel durumlarda ehil bir âlime danış.</p>
+        <div class="calculator-card">
+          <label><span data-i18n="cash">Nakit ve banka</span><input id="zCash" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i18n="gold">Altın ve gümüş değeri</span><input id="zGold" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i18n="business">Ticaret malları</span><input id="zBusiness" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i18n="investments">Zekâta tabi yatırımlar</span><input id="zInvest" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i18n="debts">Kısa vadeli borçlar</span><input id="zDebt" type="number" min="0" step="0.01" value="0"></label>
+          <label><span data-i18n="nisab">Nisap değeri</span><input id="zNisab" type="number" min="0" step="0.01" value="7000"></label>
+          <button id="calcZakatBtn" class="primary-btn full" data-i18n="calculate">Hesapla</button>
+          <div id="zakatResult" class="calculator-result"></div>
+        </div>
+      </section>
+
+      <section id="ramadanPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="ramadanKicker">Niyet ve istikrar</span><h1 data-i18n="ramadanTitle">Ramazan</h1></div></div>
+        <div class="ramadan-hero">
+          <strong id="ramadanDay">—</strong>
+          <span data-i18n="ramadanPlanner">Kişisel Ramazan planlayıcın</span>
+        </div>
+        <div id="ramadanGoals" class="goal-list"></div>
+        <form id="addGoalForm" class="goal-form"><input id="goalInput" data-i18n-placeholder="goalPlaceholder" placeholder="Yeni hedef…"><button class="primary-btn" data-i18n="add">Ekle</button></form>
+        <div class="ramadan-stats"><div><strong id="goalDone">0</strong><small data-i18n="completed">Tamamlanan</small></div><div><strong id="goalTotal">0</strong><small data-i18n="total">Toplam</small></div></div>
+      </section>
+
+      <section id="mosquesPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="mosquesKicker">Haritada bul</span><h1 data-i18n="mosquesTitle">Yakındaki Camiler</h1></div></div>
+        <p class="lead" data-i18n="mosquesLead">Konumunu kullanarak yakındaki camileri harita uygulamasında aç.</p>
+        <div class="mosque-card">
+          <div class="mosque-symbol">⌂</div>
+          <button id="openMosquesBtn" class="primary-btn" data-i18n="findMosques">Yakındaki camileri bul</button>
+          <p class="muted" data-i18n="mosquesPrivacy">Konumun yalnızca harita araması için kullanılır.</p>
+        </div>
+      </section>
+
+      <section id="favoritesPage" class="page">
+        <div class="page-head"><button class="back" data-nav="home">←</button><div><span class="kicker" data-i18n="favoritesKicker">Senin seçtiklerin</span><h1 data-i18n="favoritesTitle">Favoriler</h1></div></div>
+        <div id="favoritesList" class="history-list"></div>
+      </section>
+
+      <section id="privacyPage" class="page">
+        <div class="page-head"><button class="back" data-nav="settings">←</button><div><span class="kicker" data-i18n="privacyKicker">Şeffaflık</span><h1 data-i18n="privacyTitle">Gizlilik</h1></div></div>
+        <div class="prose-card"><p data-i18n="privacyText">Fotoğraflar analiz için API’ye gönderilir; sohbet ve geçmiş verileri varsayılan olarak yalnızca cihazında tutulur. Hassas kişisel bilgi paylaşmaman önerilir.</p></div>
+      </section>
+
     </main>
 
     <nav class="bottom-nav five">
@@ -190,5 +353,5 @@
   </div>
   <script src="/languages.js"></script>
   <script src="/app.js"></script>
-</body>
+<script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}))}</script></body>
 </html>
