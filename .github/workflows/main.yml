@@ -1,0 +1,103 @@
+name: Build Hikmet Android APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install SDK components
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Generate Android application
+        shell: bash
+        run: |
+          mkdir -p app/src/main/java/app/hikmet/web app/src/main/assets
+          cat > settings.gradle <<'GRADLE'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+          rootProject.name = 'HikmetAndroid'
+          include ':app'
+          GRADLE
+          cat > build.gradle <<'GRADLE'
+          plugins { id 'com.android.application' version '8.7.3' apply false }
+          GRADLE
+          cat > app/build.gradle <<'GRADLE'
+          plugins { id 'com.android.application' }
+          android {
+            namespace 'app.hikmet.web'
+            compileSdk 35
+            defaultConfig { applicationId 'app.hikmet.web'; minSdk 24; targetSdk 35; versionCode 1; versionName '1.0' }
+          }
+          GRADLE
+          cat > app/src/main/AndroidManifest.xml <<'XML'
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <application android:label="Hikmet" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:usesCleartextTraffic="false" android:allowBackup="false">
+              <activity android:name=".MainActivity" android:exported="true">
+                <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+                  <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+              </activity>
+            </application>
+          </manifest>
+          XML
+          cat > app/src/main/java/app/hikmet/web/MainActivity.java <<'JAVA'
+          package app.hikmet.web;
+          import android.app.Activity;
+          import android.os.Bundle;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+          import android.webkit.WebChromeClient;
+          import android.webkit.WebSettings;
+          import android.webkit.WebResourceRequest;
+          import android.content.Intent;
+          import android.net.Uri;
+          public class MainActivity extends Activity {
+            private WebView web;
+            @Override public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              web = new WebView(this);
+              web.getSettings().setJavaScriptEnabled(true);
+              web.getSettings().setDomStorageEnabled(true);
+              web.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+              web.setWebChromeClient(new WebChromeClient());
+              web.setWebViewClient(new WebViewClient() {
+                @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                  Uri uri=request.getUrl();
+                  String host=uri.getHost();
+                  if ("https".equals(uri.getScheme()) && ("hikmet.app".equals(host) || "www.hikmet.app".equals(host))) return false;
+                  try { startActivity(new Intent(Intent.ACTION_VIEW,uri)); } catch(Exception ignored) {}
+                  return true;
+                }
+              });
+              setContentView(web);
+              web.loadUrl("https://hikmet.app/");
+            }
+            @Override public void onBackPressed() {
+              if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+            }
+            @Override protected void onDestroy() { web.destroy(); super.onDestroy(); }
+          }
+          JAVA
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: hikmet-android-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
