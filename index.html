@@ -1,3 +1,13 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f7f2" id="themeColorMeta">
+  <meta name="description" content="İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hikmet.app/">
+  <meta property="og:title" content="Hikmet">
   <meta property="og:description" content="İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.">
   <meta property="og:image" content="https://www.hikmet.app/social-preview.svg">
   <meta name="twitter:card" content="summary_large_image">
@@ -13,6 +23,31 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=4">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    .welcome-view { grid-template-columns: minmax(0, 1fr); }
+    .welcome-content, .prompt-chips, .top-actions, .language-select { min-inline-size: 0; }
+    .welcome-content h1 { overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .shell, .composer-wrap {
+        padding-left: max(clamp(10px, 4vw, 20px), env(safe-area-inset-left));
+        padding-right: max(clamp(10px, 4vw, 20px), env(safe-area-inset-right));
+      }
+      .topbar { flex-wrap: wrap; }
+      .top-actions { flex-wrap: wrap; }
+      .welcome-view { min-height: auto; padding-block: clamp(24px, 8svh, 70px) 32px; }
+      .welcome-content h1 { font-size: clamp(1.75rem, 10vw, 4rem); }
+      .prompt-chip { min-width: min(78%, 14rem) !important; max-width: 100% !important; }
+      .chat-composer textarea { max-height: min(180px, 28dvh); }
+    }
+  </style>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.va('beforeSend', function (event) {
+      var url = new URL(event.url, location.origin);
+      return { ...event, url: url.origin + url.pathname };
+    });
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <script>
     (() => {
       try {
@@ -83,10 +118,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
