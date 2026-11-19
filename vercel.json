@@ -26,7 +26,7 @@
   "rewrites": [
     {
       "source": "/download",
-      "destination": "/download/index.html"
+      "destination": "/api/install"
     }
   ]
 }
