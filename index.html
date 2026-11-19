@@ -39,6 +39,8 @@
       .prompt-chip { min-width: min(78%, 14rem) !important; max-width: 100% !important; }
       .chat-composer textarea { max-height: min(180px, 28dvh); }
     }
+      .install-link { display:inline-flex; align-items:center; gap:.25em; min-height:40px; padding:0 .65rem; border:1px solid var(--line); border-radius:999px; color:var(--ink); text-decoration:none; font-size:.8rem; font-weight:650; white-space:nowrap; }
+    .install-link:hover { border-color:var(--green); }
   </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -71,7 +73,8 @@
         </span>
         <span>Hikmet</span>
       </button>
-      <div class="top-actions">
+      <nav class="top-actions" aria-label="Hikmet">
+        <a class="install-link" href="/download" aria-label="Hikmet download" title="Hikmet download">↓ <span>App</span></a>
         <button id="newChatButton" class="text-button" type="button" data-i18n="newChat" data-i18n-aria-label="newChat">Yeni konuşma</button>
         <button id="themeToggle" class="icon-button" type="button" aria-label="Tema" title="Tema">
           <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
@@ -80,7 +83,7 @@
         <select id="languageSelect" class="language-select" aria-label="Dil" title="Dil">
           <option value="tr">Türkçe</option><option value="en">English</option><option value="de">Deutsch</option><option value="es">Español</option><option value="fr">Français</option><option value="pt">Português</option><option value="ru">Русский</option><option value="zh">中文</option><option value="id">Bahasa Indonesia</option><option value="ar">العربية</option><option value="ur">اردو</option><option value="hi">हिन्दी</option>
         </select>
-      </div>
+      </nav>
     </header>
     <section id="welcomeView" class="welcome-view" aria-labelledby="welcomeHeading">
       <div class="welcome-content">
