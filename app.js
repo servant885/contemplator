@@ -62,7 +62,11 @@ function applyLanguage(){
   $("#shareUrl").hidden = true;
   $$("[data-i18n]").forEach(el=>{const value=t()[el.dataset.i18n];if(value!==undefined)el.textContent=value});
   $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t()[el.dataset.i18nPlaceholder]);
-  $$(".send-button").forEach(el=>el.setAttribute("aria-label",busy?t().cancel:t().send));
+  $$("[data-i18n-aria-label]").forEach(el=>{
+    const value=t()[el.dataset.i18nAriaLabel];
+    if(value!==undefined)el.setAttribute("aria-label",value);
+  });
+  updateSendButton();
   renderChips();
   const typing=$("#typingLabel");if(typing)typing.textContent=t().typing;
 }
