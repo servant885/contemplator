@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f7f2" id="themeColorMeta">
   <meta name="description" content="İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.">
+  <link rel="canonical" href="https://www.hikmet.app/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hikmet.app/">
   <meta property="og:title" content="Hikmet">
   <meta property="og:description" content="İçinde Allah'a yaklaşmana engel olan ne varsa, yargılanmadan konuş.">
   <meta property="og:image" content="https://www.hikmet.app/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hikmet">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="apple-mobile-web-app-title" content="Hikmet">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -76,6 +80,7 @@
       </button>
       <nav class="top-actions" aria-label="Hikmet">
         <a class="install-link" href="/download" aria-label="Yükle" title="Yükle"><span aria-hidden="true">↓</span> <span id="installLabel">Yükle</span></a>
+        <button id="shareButton" class="text-button" type="button">Paylaş</button>
         <button id="newChatButton" class="text-button" type="button" data-i18n="newChat" data-i18n-aria-label="newChat">Yeni konuşma</button>
         <button id="themeToggle" class="icon-button" type="button" aria-label="Tema" title="Tema">
           <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
@@ -86,6 +91,8 @@
         </select>
       </nav>
     </header>
+    <p id="shareStatus" role="status" hidden></p>
+    <input id="shareUrl" type="url" value="https://www.hikmet.app/" aria-label="Hikmet" readonly hidden>
     <section id="welcomeView" class="welcome-view" aria-labelledby="welcomeHeading">
       <div class="welcome-content">
         <span class="eyebrow" data-i18n="eyebrow">Yargısız ve samimi bir konuşma</span>

@@ -13,6 +13,21 @@ ur:{headline:"آپ کو رحمٰن کے قریب آنے سے کیا روکتا �
 hi:{headline:"आपको रहमान के करीब आने से क्या रोकता है?",intro:"यह कोई संदेह, दुखद अनुभव, गुनाह या इबादत शुरू करने की कठिनाई हो सकती है। जैसा है वैसा लिखें।",placeholder:"अपने दिल की बात लिखें…",newChat:"नई बातचीत",typing:"Hikmet लिख रहा है",cancel:"उत्तर रोकें",cancelled:"अनुरोध रद्द किया गया।",send:"भेजें",error:"अभी उत्तर तैयार नहीं हो सका। फिर प्रयास करें।",eyebrow:"बिना निर्णय की ईमानदार बातचीत",trustNote:"उद्देश्य दबाव डालना नहीं, बल्कि समझना और हिकमत से सत्य पर बात करना है।",disclaimer:"Hikmet एक शैक्षिक साधन है और योग्य विद्वान या पेशेवर सहायता का विकल्प नहीं।",welcome:"मैं सुन रहा हूँ। क्या आप बता सकते हैं कि आपको यह महसूस या सोचने की वजह क्या बनी?",prompts:["मैंने बहुत गुनाह किए हैं","मुसलमानों ने मुझे दूर कर दिया","अल्लाह बुराई क्यों होने देता है?","मैं नमाज़ शुरू नहीं कर पा रहा","मुझे यकीन नहीं कि इस्लाम सत्य है"]}
 };
 
+const SHARE_LABELS = {
+  tr: ["Paylaş", "Bağlantı kopyalandı."],
+  en: ["Share", "Link copied."],
+  de: ["Teilen", "Link kopiert."],
+  es: ["Compartir", "Enlace copiado."],
+  fr: ["Partager", "Lien copié."],
+  pt: ["Partilhar", "Ligação copiada."],
+  ru: ["Поделиться", "Ссылка скопирована."],
+  zh: ["分享", "链接已复制。"],
+  id: ["Bagikan", "Tautan disalin."],
+  ar: ["مشاركة", "تم نسخ الرابط."],
+  ur: ["شیئر کریں", "لنک کاپی ہوگیا۔"],
+  hi: ["साझा करें", "लिंक कॉपी हो गया।"]
+};
+
 const SUPPORTED=Object.keys(TRANSLATIONS);
 const $=s=>document.querySelector(s);
 const $$=s=>[...document.querySelectorAll(s)];
@@ -35,6 +50,9 @@ function applyLanguage(){
   document.documentElement.lang=language;
   document.documentElement.dir=["ar","ur"].includes(language)?"rtl":"ltr";
   $("#languageSelect").value=language;
+  $("#shareButton").textContent = (SHARE_LABELS[language] || SHARE_LABELS.en)[0];
+  $("#shareStatus").hidden = true;
+  $("#shareUrl").hidden = true;
   $$("[data-i18n]").forEach(el=>{const value=t()[el.dataset.i18n];if(value!==undefined)el.textContent=value});
   $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t()[el.dataset.i18nPlaceholder]);
   $$(".send-button").forEach(el=>el.setAttribute("aria-label",busy?t().cancel:t().send));
@@ -123,6 +141,29 @@ $("#chatForm").onsubmit=e=>{e.preventDefault();if(!busy)sendMessage($("#chatInpu
 $("#sendButton").onclick=e=>{if(busy){e.preventDefault();activeController?.abort("user")}};
 $("#chatInput").addEventListener("input",e=>autoResize(e.target));
 $("#welcomeInput").addEventListener("input",e=>autoResize(e.target));
+$("#shareButton").onclick = async () => {
+  const link = $("#shareUrl");
+  const status = $("#shareStatus");
+  link.hidden = true;
+  status.hidden = true;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "Hikmet", url: link.value });
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(link.value);
+    status.hidden = false;
+    status.textContent = (SHARE_LABELS[language] || SHARE_LABELS.en)[1];
+  } catch {
+    link.hidden = false;
+    link.select();
+  }
+};
+
 $("#newChatButton").onclick=newConversation;$("#homeButton").onclick=newConversation;
 $("#languageSelect").onchange=e=>{language=e.target.value;localStorage.setItem("hikmet-language",language);applyLanguage()};
 $("#themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("hikmet-theme",next);$("#themeColorMeta").content=next==="dark"?"#0f120f":"#f4f1e9"};

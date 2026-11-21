@@ -1,4 +1,4 @@
-const CACHE_NAME = "hikmet-pwa-v13";
+const CACHE_NAME = "hikmet-pwa-v14";
 const PRECACHE_URLS = [
   "/",
   "/download",
