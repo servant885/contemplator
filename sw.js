@@ -1,14 +1,13 @@
-const CACHE_NAME = "hikmet-pwa-v12";
+const CACHE_NAME = "hikmet-pwa-v13";
 const PRECACHE_URLS = [
   "/",
-  "/index.html",
+  "/download",
   "/styles.css",
   "/app.js",
   "/languages.js",
   "/manifest.webmanifest",
-  "/favicon.svg",
-  "/favicon-32.png",
-  "/favicon-192.png?v=4",
+  "/favicon.svg?v=5",
+  "/favicon-32.png?v=5",
   "/apple-touch-icon.png",
   "/icon-192.png",
   "/icon-512.png"
@@ -38,21 +37,24 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin || url.pathname.startsWith("/api/")) return;
 
   if (request.mode === "navigate") {
+    const page = url.pathname === "/index.html" ? "/" : url.pathname.replace(/\/$/, "") || "/";
+    if (page !== "/" && page !== "/download") return;
     event.respondWith((async () => {
       try {
         const response = await fetch(request);
         if (response.ok) {
           const cache = await caches.open(CACHE_NAME);
-          await cache.put("/index.html", response.clone());
-          await cache.put("/", response.clone());
+          await cache.put(page, response.clone());
         }
         return response;
       } catch {
-        return (await caches.match(request)) || (await caches.match("/index.html")) || (await caches.match("/"));
+        return (await caches.match(page)) || Response.error();
       }
     })());
     return;
   }
+
+  if (!PRECACHE_URLS.includes(url.pathname + url.search)) return;
 
   event.respondWith((async () => {
     const cached = await caches.match(request);
