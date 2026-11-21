@@ -31,7 +31,14 @@ const SHARE_LABELS = {
 const SUPPORTED=Object.keys(TRANSLATIONS);
 const $=s=>document.querySelector(s);
 const $$=s=>[...document.querySelectorAll(s)];
-let language=localStorage.getItem("hikmet-language")||detectLanguage();
+function readPreference(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function writePreference(key, value) {
+  try { localStorage.setItem(key, value); } catch {}
+}
+const savedLanguage = readPreference("hikmet-language");
+let language = SUPPORTED.includes(savedLanguage) ? savedLanguage : detectLanguage();
 let history=loadHistory();
 let activeController=null;
 let busy=false;
@@ -63,8 +70,14 @@ function renderChips(){
   $("#promptChips").innerHTML=t().prompts.map(p=>`<button class="prompt-chip" type="button">${escapeHtml(p)}</button>`).join("");
   $("#promptChips").querySelectorAll("button").forEach(btn=>btn.onclick=()=>{$("#welcomeInput").value=btn.textContent;$("#welcomeInput").focus()});
 }
-function loadHistory(){try{return JSON.parse(localStorage.getItem("hikmet-conversation")||"[]")}catch{return []}}
-function saveHistory(){localStorage.setItem("hikmet-conversation",JSON.stringify(history.slice(-30)))}
+function loadHistory() {
+  try {
+    const stored = JSON.parse(readPreference("hikmet-conversation") || "[]");
+    return Array.isArray(stored) ? stored.filter(item => item &&
+      (item.role === "user" || item.role === "assistant") && typeof item.text === "string") : [];
+  } catch { return []; }
+}
+function saveHistory(){writePreference("hikmet-conversation",JSON.stringify(history.slice(-30)))}
 function newConversation(){
   if(activeController)activeController.abort();
   busy=false;activeController=null;history=[];saveHistory();
@@ -165,8 +178,8 @@ $("#shareButton").onclick = async () => {
 };
 
 $("#newChatButton").onclick=newConversation;$("#homeButton").onclick=newConversation;
-$("#languageSelect").onchange=e=>{language=e.target.value;localStorage.setItem("hikmet-language",language);applyLanguage()};
-$("#themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("hikmet-theme",next);$("#themeColorMeta").content=next==="dark"?"#0f120f":"#f4f1e9"};
+$("#languageSelect").onchange=e=>{language=e.target.value;writePreference("hikmet-language",language);applyLanguage()};
+$("#themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;writePreference("hikmet-theme",next);$("#themeColorMeta").content=next==="dark"?"#0f120f":"#f4f1e9"};
 
 
 function keepComposerVisible(){

@@ -1,13 +1,13 @@
-const CACHE_NAME = "hikmet-pwa-v14";
+const CACHE_NAME = "hikmet-pwa-v15";
 const PRECACHE_URLS = [
   "/",
   "/download",
   "/styles.css",
-  "/app.js",
+  "/app.js?v=15",
   "/languages.js",
   "/manifest.webmanifest",
-  "/favicon.svg?v=5",
-  "/favicon-32.png?v=5",
+  "/favicon.svg?v=6",
+  "/favicon.ico?v=6",
   "/apple-touch-icon.png",
   "/icon-192.png",
   "/icon-512.png"
@@ -16,7 +16,7 @@ const PRECACHE_URLS = [
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(PRECACHE_URLS);
+    await cache.addAll(PRECACHE_URLS.map(url => new Request(url, { cache: "reload" })));
     await self.skipWaiting();
   })());
 });

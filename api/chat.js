@@ -170,7 +170,7 @@ export default async function handler(req, res) {
   }
   if (!enforceOrigin(req)) return res.status(403).json({ error: "Request origin is not allowed" });
   const contentType = String(req.headers["content-type"] || "");
-  if (!contentType.includes("application/json")) return res.status(415).json({ error: "Content-Type must be application/json" });
+  if (contentType.split(";", 1)[0].trim().toLowerCase() !== "application/json") return res.status(415).json({ error: "Content-Type must be application/json" });
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return res.status(500).json({ error: "Service configuration is incomplete" });
   try {
@@ -186,7 +186,8 @@ export default async function handler(req, res) {
       return res.status(429).json({ error: "Usage limit reached. Please try again later.", retryAfter: rateLimit.retryAfter });
     }
     res.setHeader("X-RateLimit-Remaining", String(rateLimit.remaining));
-    const selectedLanguage = LANGUAGE_NAMES[language] || "English";
+    const selectedLanguage = typeof language === "string" && Object.hasOwn(LANGUAGE_NAMES, language)
+      ? LANGUAGE_NAMES[language] : "English";
     const conversation = normalizeConversation(history, normalizedMessage);
     const first = await callGemini({ apiKey, selectedLanguage, contents: conversation });
     let completeText = first.text;
@@ -202,11 +203,11 @@ export default async function handler(req, res) {
     if (!reply) return res.status(502).json({ error: "Empty or invalid AI response" });
     return res.status(200).json({ reply });
   } catch (error) {
-    console.error("Chat error:", error);
+    console.error("Chat request failed", { name: error?.name, status: error?.status });
     if (error?.name === "AbortError") return res.status(504).json({ error: "The AI request timed out" });
     const isRateLimitConfigError = error?.message === "Persistent rate limiting is not configured";
-    return res.status(isRateLimitConfigError ? 503 : (error.status || 500)).json({
-      error: isRateLimitConfigError ? "Service is temporarily unavailable" : (error.message || "The conversation could not be completed")
+    return res.status(isRateLimitConfigError ? 503 : (error?.status || 500)).json({
+      error: isRateLimitConfigError ? "Service is temporarily unavailable" : "The conversation could not be completed"
     });
   }
 }
