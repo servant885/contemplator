@@ -28,6 +28,21 @@ const SHARE_LABELS = {
   hi: ["साझा करें", "लिंक कॉपी हो गया।"]
 };
 
+const INTERFACE_LABELS = {
+  tr: ["Dil", "Tema", "Sohbet önerileri", "Hikmet sohbeti", "Paylaşım bağlantısı"],
+  en: ["Language", "Theme", "Conversation starters", "Hikmet conversation", "Share link"],
+  de: ["Sprache", "Design", "Gesprächsvorschläge", "Hikmet-Gespräch", "Link zum Teilen"],
+  es: ["Idioma", "Tema", "Ideas para conversar", "Conversación con Hikmet", "Enlace para compartir"],
+  fr: ["Langue", "Thème", "Idées de conversation", "Conversation avec Hikmet", "Lien de partage"],
+  pt: ["Idioma", "Tema", "Sugestões de conversa", "Conversa com Hikmet", "Ligação para partilhar"],
+  ru: ["Язык", "Тема оформления", "Темы для разговора", "Беседа с Hikmet", "Ссылка для отправки"],
+  zh: ["语言", "主题", "对话建议", "Hikmet 对话", "分享链接"],
+  id: ["Bahasa", "Tema", "Saran percakapan", "Percakapan Hikmet", "Tautan berbagi"],
+  ar: ["اللغة", "المظهر", "اقتراحات للمحادثة", "محادثة مع Hikmet", "رابط المشاركة"],
+  ur: ["زبان", "تھیم", "گفتگو کی تجاویز", "Hikmet سے گفتگو", "شیئر کرنے کا لنک"],
+  hi: ["भाषा", "थीम", "बातचीत के सुझाव", "Hikmet से बातचीत", "साझा करने का लिंक"]
+};
+
 const SUPPORTED=Object.keys(TRANSLATIONS);
 const $=s=>document.querySelector(s);
 const $$=s=>[...document.querySelectorAll(s)];
@@ -57,11 +72,24 @@ function applyLanguage(){
   document.documentElement.lang=language;
   document.documentElement.dir=["ar","ur"].includes(language)?"rtl":"ltr";
   $("#languageSelect").value=language;
+  const [languageLabel, themeLabel, promptsLabel, chatLabel, shareLinkLabel] =
+    INTERFACE_LABELS[language] || INTERFACE_LABELS.en;
+  for (const [selector, label] of [
+    ["#languageSelect", languageLabel], ["#themeToggle", themeLabel],
+    ["#promptChips", promptsLabel], ["#chatView", chatLabel], ["#shareUrl", shareLinkLabel]
+  ]) {
+    $(selector).setAttribute("aria-label", label);
+  }
+  $("#languageSelect").title = languageLabel;
+  $("#themeToggle").title = themeLabel;
   $("#shareButton").textContent = (SHARE_LABELS[language] || SHARE_LABELS.en)[0];
   $("#shareStatus").hidden = true;
   $("#shareUrl").hidden = true;
   $$("[data-i18n]").forEach(el=>{const value=t()[el.dataset.i18n];if(value!==undefined)el.textContent=value});
   $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t()[el.dataset.i18nPlaceholder]);
+  $$("[data-i18n-aria-label]").forEach(el => {
+    el.setAttribute("aria-label", t()[el.dataset.i18nAriaLabel]);
+  });
   $$(".send-button").forEach(el=>el.setAttribute("aria-label",busy?t().cancel:t().send));
   renderChips();
   const typing=$("#typingLabel");if(typing)typing.textContent=t().typing;
@@ -136,7 +164,7 @@ async function sendMessage(text){
   const controller=new AbortController();activeController=controller;
   const timer=setTimeout(()=>controller.abort("timeout"),60000);
   try{
-    const response=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},signal:controller.signal,body:JSON.stringify({language,message:text,history:history.slice(-16)})});
+    const response=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},signal:controller.signal,body:JSON.stringify({language,message:text,history:history.slice(-8)})});
     const data=await response.json().catch(()=>({}));
     if(!response.ok)throw new Error(data.error||t().error);
     const reply=String(data.reply||"").trim();if(!reply)throw new Error(t().error);
@@ -173,6 +201,7 @@ $("#shareButton").onclick = async () => {
     status.textContent = (SHARE_LABELS[language] || SHARE_LABELS.en)[1];
   } catch {
     link.hidden = false;
+    link.focus();
     link.select();
   }
 };
