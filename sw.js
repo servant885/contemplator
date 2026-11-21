@@ -1,9 +1,9 @@
-const CACHE_NAME = "hikmet-pwa-v17";
+const CACHE_NAME = "hikmet-pwa-v18";
 const PRECACHE_URLS = [
   "/",
   "/download",
   "/styles.css",
-  "/app.js?v=17",
+  "/app.js?v=18",
   "/languages.js",
   "/manifest.webmanifest",
   "/favicon.svg?v=6",

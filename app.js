@@ -180,6 +180,13 @@ async function sendMessage(text){
     typing.classList.remove("typing");
     typing.classList.add(cancelled ? "cancelled" : "error");
     typing.textContent = cancelled ? t().cancelled : t().error;
+    const input = $("#chatInput");
+    if (!cancelled && input.value === "") {
+      history.pop();
+      saveHistory();
+      input.value = text;
+      autoResize(input);
+    }
   } finally {
     clearTimeout(timer);
     if (activeController === controller) {
