@@ -107,19 +107,22 @@ function loadHistory() {
 }
 function saveHistory(){writePreference("hikmet-conversation",JSON.stringify(history.slice(-30)))}
 function newConversation(){
-  if(activeController)activeController.abort();
-  busy=false;activeController=null;history=[];saveHistory();
+  const previousController = activeController;
+  activeController = null;
+  previousController?.abort();
+  busy=false;history=[];saveHistory();
   $("#messages").innerHTML="";
   $("#chatView").classList.add("hidden");
   $("#welcomeView").classList.remove("hidden");
   $("#welcomeInput").value="";
   updateSendButton();
+  $("#welcomeInput").focus();
 }
 function openChat(){
   $("#welcomeView").classList.add("hidden");
   $("#chatView").classList.remove("hidden");
   renderHistory();
-  setTimeout(()=>$("#chatInput").focus(),100);
+  $("#chatInput").focus();
 }
 function renderHistory(){
   const box=$("#messages");box.innerHTML="";
@@ -166,15 +169,25 @@ async function sendMessage(text){
   try{
     const response=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},signal:controller.signal,body:JSON.stringify({language,message:text,history:history.slice(-8)})});
     const data=await response.json().catch(()=>({}));
-    if(!response.ok)throw new Error(data.error||t().error);
-    const reply=String(data.reply||"").trim();if(!reply)throw new Error(t().error);
+    if (activeController !== controller) return;
+    controller.signal.throwIfAborted();
+    if(!response.ok)throw new Error();
+    const reply=String(data.reply||"").trim();if(!reply)throw new Error();
     typing.remove();addMessage(reply,"assistant");history.push({role:"assistant",text:reply});saveHistory();
-  }catch(error){
+  } catch {
+    if (activeController !== controller) return;
+    const cancelled = controller.signal.reason === "user";
     typing.classList.remove("typing");
-    typing.classList.add(error.name==="AbortError"?"cancelled":"error");
-    typing.textContent=error.name==="AbortError"?t().cancelled:(error.message||t().error);
-  }finally{
-    clearTimeout(timer);activeController=null;busy=false;updateSendButton();$("#chatInput").focus();
+    typing.classList.add(cancelled ? "cancelled" : "error");
+    typing.textContent = cancelled ? t().cancelled : t().error;
+  } finally {
+    clearTimeout(timer);
+    if (activeController === controller) {
+      activeController = null;
+      busy = false;
+      updateSendButton();
+      $("#chatInput").focus();
+    }
   }
 }
 $("#welcomeForm").onsubmit=e=>{e.preventDefault();sendMessage($("#welcomeInput").value)};
