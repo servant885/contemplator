@@ -244,6 +244,13 @@ if(window.visualViewport){
 }
 ["welcomeInput","chatInput"].forEach(id=>{
   const el=$("#"+id);
+  el.addEventListener("keydown", event => {
+    if (event.key !== "Enter" || !(event.ctrlKey || event.metaKey) ||
+        event.altKey || event.shiftKey || event.isComposing || event.repeat ||
+        busy || !el.value.trim()) return;
+    event.preventDefault();
+    el.form.requestSubmit();
+  });
   el?.addEventListener("focus",()=>{
     setTimeout(()=>el.scrollIntoView({block:"center",behavior:"smooth"}),250);
   });
